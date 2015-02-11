@@ -5,7 +5,7 @@ class CreateBuildings < ActiveRecord::Migration
       t.string :description
       t.string :photo
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
