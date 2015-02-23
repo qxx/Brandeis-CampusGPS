@@ -8,6 +8,12 @@
 
 Building.delete_all
 Building.create!(
-  name: '1',
-  description: '11111',
-  photo: 'shapiro.jpg')
+  [ { name: 'Carl J. Shapiro Science Center',
+      description: 'The Carl J. Shapiro Science Center features 175,000 square feet of biology and chemistry teaching and research lab space overlooking the Brandeis campus. The center houses the university’s National Center for Behavioral Genomics. Seminar and conference areas and an atrium with study space round out the Shapiro Science Center’s interior.',
+      photo: 'buildings/shapiro-science-1.jpg'
+    },
+    { name: 'Volen National Center for Complex Systems',
+      description: 'Primarily a research facility, the Volen National Center for Complex Systems is home to an interdisciplinary group of neuroscientists and the Computer Science department. The center includes office',
+      photo: 'buildings/Volen.jpg'
+    } 
+  ] )
