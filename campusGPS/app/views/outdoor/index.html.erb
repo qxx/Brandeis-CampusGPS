@@ -1,0 +1,15 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Campus GPS</h1>
+
+<h3>From</h3>
+<% @buildings.each do |building| %>
+  <p><%= building.name %></p>
+<% end %>
+
+<h3>To</h3>
+<% @buildings.each do |building| %>
+  <p><%= building.name %></p>
+<% end %>
