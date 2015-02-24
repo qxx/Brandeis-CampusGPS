@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag(@building.photo, class: 'list_image') %>
+</p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @building.id %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @building.name %>
 </p>

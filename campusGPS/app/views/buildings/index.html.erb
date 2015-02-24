@@ -18,9 +18,11 @@
         <td><%= building.name %></td>
         <td><%= building.description %></td>
         <td><%= building.photo %></td>
-        <td><%= link_to 'Show', building %></td>
-        <td><%= link_to 'Edit', edit_building_path(building) %></td>
-        <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', building %>
+          <%= link_to 'Edit', edit_building_path(building) %>
+          <%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
