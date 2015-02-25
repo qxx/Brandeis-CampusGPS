@@ -1,0 +1,41 @@
+<%= form_for(@path) do |f| %>
+  <% if @path.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@path.errors.count, "error") %> prohibited this path from being saved:</h2>
+
+      <ul>
+      <% @path.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :start_Location_id %><br>
+    <%= f.number_field :start_Location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :end_Location_id %><br>
+    <%= f.number_field :end_Location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :direction %><br>
+    <%= f.number_field :direction %>
+  </div>
+  <div class="field">
+    <%= f.label :PathPhotos_id %><br>
+    <%= f.number_field :PathPhotos_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

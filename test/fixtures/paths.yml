@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  distance: 1
+  start_Location_id: 1
+  end_Location_id: 1
+  direction: 1
+  PathPhotos_id: 1
+
+two:
+  description: MyText
+  distance: 1
+  start_Location_id: 1
+  end_Location_id: 1
+  direction: 1
+  PathPhotos_id: 1

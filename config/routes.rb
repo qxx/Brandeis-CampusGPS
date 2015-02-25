@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :paths
+
   resources :entrances
 
   get 'outdoor/index'
