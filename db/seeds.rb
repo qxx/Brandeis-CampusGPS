@@ -21,5 +21,10 @@ Building.create!(
       longitude: -71.25910923
     } 
   ] )
+Path.create!(
+    description: 'Assemble a catapult, set the right angle and launch yourself from SSC to Volen.',
+    distance: 1,
+    direction: 0
+    )
 
 # Import from a csv file if there are too many records to seed
