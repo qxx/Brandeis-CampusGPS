@@ -7,16 +7,29 @@
 
 <h1>Campus GPS</h1>
 
-// Drop down list / select buildings
-<h3>From</h3>
+<!-- searh box --> 
+<%= form_tag buildings_path, :method => 'get' do %>
+  <p>
+  From: <%= text_field_tag :from, params[:from]%>
+  </br>
+  To: <nbsp><%= text_field_tag :to, params[:to]%>
+  <%= submit_tag "GO", :name => nil %>
+  </p>
+  
+<% end %>
+
+
+<h4>"From" can be:</h4>
 <% @buildings.each do |building| %>
   <p><%= building.name %></p>
 <% end %>
 
-<h3>To</h3>
+<h4>"To" can be:</h4>
 <% @buildings.each do |building| %>
   <p><%= building.name %></p>
 <% end %>
+
+<!-- google map -->
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
