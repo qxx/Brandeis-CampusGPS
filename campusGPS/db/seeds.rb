@@ -17,3 +17,5 @@ Building.create!(
       photo: 'buildings/Volen.jpg'
     } 
   ] )
+
+# Import from a csv file if there are too many records to seed
