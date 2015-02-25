@@ -51,5 +51,8 @@ group :production do
   # Use PostgreSQL as the database for production
   # Run "bundle install --without production" to avoid local installation of the pg gem
   gem 'pg'
+  
+  # For features on Heroku
+  gem 'rails_12factor'
 end
 
