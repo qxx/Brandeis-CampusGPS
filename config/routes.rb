@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'outdoor/routing' => 'outdoor#routing'
+
   get 'outdoor_path/index'
 
   resources :paths
@@ -36,6 +38,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
 
   # Example resource route with sub-resources:
   #   resources :products do

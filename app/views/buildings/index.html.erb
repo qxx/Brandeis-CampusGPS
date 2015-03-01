@@ -1,50 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1> From and To</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-      <tr>
-  <% if @buildingsfrom.nil? %> 
-    <p>ERROR: first building does not exist</p>
-  <% else %>
-        <td><%= @buildingsfrom.name %></td>
-        <td><%= @buildingsfrom.description %></td>
-        <td><%= @buildingsfrom.photo %></td>
-        <td class="list_actions">
-          <%= link_to 'Show', @buildingsfrom %>
-          <%= link_to 'Edit', edit_building_path(@buildingsfrom) %>
-          <%= link_to 'Destroy', @buildingsfrom, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </td>
-      </tr>
-      <% end %>
-  <tr><td></br>
-  </td></tr>
-     <tr>
-  <% if @buildingsto.nil? %> 
-    <p>ERROR: second building does not exist</p>
-  <% else %>
-        <td><%= @buildingsto.name %></td>
-        <td><%= @buildingsto.description %></td>
-        <td><%= @buildingsto.photo %></td>
-        <td class="list_actions">
-          <%= link_to 'Show', @buildingsto %>
-          <%= link_to 'Edit', edit_building_path(@buildingsto) %>
-          <%= link_to 'Destroy', @buildingsto, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
-<!--
+
 <h1>Listing Buildings</h1>
 
 <table>
@@ -58,21 +15,21 @@
   </thead>
 
   <tbody>
-    <% #@buildings.each do |building| %>
+    <% @buildings.each do |building| %>
       <tr>
-        <td><%#= building.name %></td>
-        <td><%#= building.description %></td>
-        <td><%#= building.photo %></td>
+        <td><%= building.name %></td>
+        <td><%= building.description %></td>
+        <td><%= building.photo %></td>
         <td class="list_actions">
-          <%#= link_to 'Show', building %>
-          <%#= link_to 'Edit', edit_building_path(building) %>
-          <%#= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', building %>
+          <%= link_to 'Edit', edit_building_path(building) %>
+          <%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>
--->
+
 <br>
 
 <%= link_to 'New Building', new_building_path %>
