@@ -1,0 +1,7 @@
+<h1>Welcome, admin</h1>
+
+<p>It's <%= Time.now %></p>
+We have:
+<ul><%= pluralize(@total_users, "user") %></ul>
+<ul><%= pluralize(@total_buildings, "building") %></ul>
+<ul><%= pluralize(@total_paths, "path") %></ul>
