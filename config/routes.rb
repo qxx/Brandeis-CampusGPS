@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   get 'outdoor/routing' => 'outdoor#routing'
 
   get 'outdoor_path/index'
