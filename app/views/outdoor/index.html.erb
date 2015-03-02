@@ -18,16 +18,12 @@
   
 <% end %>
 
-
-<h4>"From" can be:</h4>
+<%= link_to 'Edit Buildings', login_url %>
+<h4>Buildings</h4>
 <% @buildings.each do |building| %>
   <p><%= building.name %></p>
 <% end %>
 
-<h4>"To" can be:</h4>
-<% @buildings.each do |building| %>
-  <p><%= building.name %></p>
-<% end %>
 
 <!-- google map -->
 
