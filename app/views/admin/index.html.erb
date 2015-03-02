@@ -1,0 +1,16 @@
+<h1>Admin#index</h1>
+<p>Find me in app/views/admin/index.html.erb</p>
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  <p>
+    <% @admins.each do |admin| %>
+    	
+     <%= admin.name %>
+     <%= admin.hashed_password %>
+     <%= admin.salt %>
+     <%= link_to 'Show', admin %>
+     <%= link_to 'Edit', edit_admin_path(admin) %>
+     <%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </p>
