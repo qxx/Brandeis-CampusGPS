@@ -27,4 +27,9 @@ Path.create!(
     direction: 0
     )
 
+User.create!(
+    name: 'admin',
+    password: 'admin'
+    password_confirmation: 'secret'
+    )
 # Import from a csv file if there are too many records to seed
