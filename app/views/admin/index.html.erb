@@ -2,6 +2,6 @@
 
 <p>It's <%= Time.now %></p>
 We have:
-<ul><%= pluralize(@total_users, "user") %></ul>
-<ul><%= pluralize(@total_buildings, "building") %></ul>
-<ul><%= pluralize(@total_paths, "path") %></ul>
+<ul><%= link_to pluralize(@total_users, "user"), users_path %></ul> 
+<ul><%= link_to pluralize(@total_buildings, "building"), buildings_path %></ul>
+<ul><%= link_to pluralize(@total_paths, "path"), paths_path %></ul>
