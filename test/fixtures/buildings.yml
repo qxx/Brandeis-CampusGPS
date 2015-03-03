@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: "S S C"
   description: MyString
   photo: MyString
 
 two:
-  name: MyString
+  name: "Volen"
   description: MyString
   photo: MyString
