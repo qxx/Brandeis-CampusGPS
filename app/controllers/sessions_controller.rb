@@ -19,3 +19,4 @@ class SessionsController < ApplicationController
     redirect_to outdoor_url, notice: "Logged out"
   end
 end
+ 
