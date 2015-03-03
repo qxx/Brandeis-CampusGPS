@@ -21,15 +21,16 @@ Building.create!(
       longitude: -71.25910923
     } 
   ] )
+Path.delete_all
 Path.create!(
     description: 'Assemble a catapult, set the right angle and launch yourself from SSC to Volen.',
     distance: 1,
     direction: 0
     )
-
+User.delete_all
 User.create!(
     name: 'admin',
-    password: 'admin'
-    password_confirmation: 'secret'
+    password: 'admin',
+    password_confirmation: 'admin'
     )
 # Import from a csv file if there are too many records to seed
