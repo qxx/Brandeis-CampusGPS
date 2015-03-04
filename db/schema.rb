@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20150304202131) do
     t.string   "name"
     t.string   "description"
     t.string   "photo"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -26,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150304202131) do
   create_table "entrances", force: :cascade do |t|
     t.string   "photo"
     t.integer  "building_id"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
