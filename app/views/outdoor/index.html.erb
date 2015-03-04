@@ -6,6 +6,7 @@
 <% end %>
 
 <h1>Campus GPS</h1>
+<%= link_to 'Login', login_url %>
 
 <!-- searh box --> 
 <%= form_tag outdoor_routing_path, :method => 'get' do %>
@@ -18,7 +19,7 @@
   
 <% end %>
 
-<%= link_to 'Edit Buildings', login_url %>
+
 <h4>Buildings</h4>
 <% @buildings.each do |building| %>
   <p><%= building.name %></p>

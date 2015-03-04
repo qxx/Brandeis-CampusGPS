@@ -1,6 +1,5 @@
 class OutdoorController < ApplicationController
-    skip_before_filter :authorize
-
+  skip_before_filter :authorize
 
   def index
   	@users = Building.all

@@ -18,7 +18,7 @@ class BuildingsControllerTest < ActionController::TestCase
 
   test "should create building" do
     assert_difference('Building.count') do
-      post :create, building: { description: @building.description, name: @building.name, photo: @building.photo }
+      post :create, building: { description: 'new building', name: 'new building name', photo: 'photo' }
     end
 
     assert_redirected_to building_path(assigns(:building))

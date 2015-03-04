@@ -1,16 +1,11 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
-  <% if notice %>
-    <p id="notice"><%= notice %></p>
-  <% end %>
-  <p>
-    <% @admins.each do |admin| %>
-    	
-     <%= admin.name %>
-     <%= admin.hashed_password %>
-     <%= admin.salt %>
-     <%= link_to 'Show', admin %>
-     <%= link_to 'Edit', edit_admin_path(admin) %>
-     <%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </p>
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome, admin</h1>
+
+<p>It's <%= Time.now %></p>
+We have:
+<ul><%= link_to pluralize(@total_users, "user"), users_path %></ul> 
+<ul><%= link_to pluralize(@total_buildings, "building"), buildings_path %></ul>
+<ul><%= link_to pluralize(@total_paths, "path"), paths_path %></ul>
+
+<%= button_to 'Logout', logout_path, :method => :delete %>

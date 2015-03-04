@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
   def index
-  	@admins = Admin.order(:name)
+    @total_users = User.count
+    @total_buildings = Building.count
+    @total_paths = Path.count
   end
 end
