@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Welcome, admin</h1>
 
 <p>It's <%= Time.now %></p>
@@ -5,3 +7,5 @@ We have:
 <ul><%= link_to pluralize(@total_users, "user"), users_path %></ul> 
 <ul><%= link_to pluralize(@total_buildings, "building"), buildings_path %></ul>
 <ul><%= link_to pluralize(@total_paths, "path"), paths_path %></ul>
+
+<%= button_to 'Logout', logout_path, :method => :delete %>
