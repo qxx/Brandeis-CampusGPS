@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303194302) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.string   "hashed_password"
-    t.string   "salt"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+ActiveRecord::Schema.define(version: 20150304202131) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -34,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150303194302) do
   create_table "entrances", force: :cascade do |t|
     t.string   "photo"
     t.integer  "building_id"
-    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -47,6 +38,13 @@ ActiveRecord::Schema.define(version: 20150303194302) do
     t.string   "loc_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "path_buildings", force: :cascade do |t|
+    t.integer  "path_id"
+    t.integer  "building_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "paths", force: :cascade do |t|
