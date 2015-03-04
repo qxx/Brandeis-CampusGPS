@@ -51,6 +51,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'minitest-spec-rails'
+end
+
 group :production do
   # Use PostgreSQL as the database for production
   # Run "bundle install --without production" to avoid local installation of the pg gem
