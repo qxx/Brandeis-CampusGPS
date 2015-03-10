@@ -36,7 +36,8 @@ class OutdoorController < ApplicationController
       @building_to = Building.all.find_by name:(params[:to])
     end
     if @building_from && @building_to
-      @paths = Path.where(start_Location_id: @building_from.loc_id, end_Location_id: @building_to.loc_id)
+      route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
+      @paths = route.paths
     end
   end
 
