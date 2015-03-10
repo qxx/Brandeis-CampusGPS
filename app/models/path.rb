@@ -5,10 +5,10 @@ class Path < ActiveRecord::Base
   has_many :buildings, through: :path_buildings
 
   def start_loc
-    Building.find(self.start_Location_id)
+    Building.find(self.start_location_id)
   end
 
   def end_loc
-    Building.find(self.end_Location_id)
+    Building.find(self.end_location_id)
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304202131) do
+ActiveRecord::Schema.define(version: 20150310032750) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -48,11 +48,19 @@ ActiveRecord::Schema.define(version: 20150304202131) do
 
   create_table "paths", force: :cascade do |t|
     t.text     "description"
-    t.integer  "distance"
-    t.integer  "start_Location_id"
-    t.integer  "end_Location_id"
-    t.integer  "direction"
-    t.integer  "PathPhotos_id"
+    t.float    "distance"
+    t.integer  "start_location_id"
+    t.integer  "end_location_id"
+    t.float    "direction"
+    t.string   "photo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.integer  "start_location_id"
+    t.integer  "end_location_id"
+    t.float    "distance"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

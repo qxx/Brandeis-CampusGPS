@@ -20,10 +20,10 @@
       <tr>
         <td><%= path.description %></td>
         <td><%= path.distance %></td>
-        <td><%= path.start_loc %></td>
+        <td><%= path.start_loc.name %></td>
         <td><%= path.end_loc.name %></td>
         <td><%= path.direction %></td>
-        <td><%= path.PathPhotos_id %></td>
+        <td><%= path.photo %></td>
         <td><%= link_to 'Show', path %></td>
         <td><%= link_to 'Edit', edit_path_path(path) %></td>
         <td><%= link_to 'Destroy', path, method: :delete, data: { confirm: 'Are you sure?' } %></td>

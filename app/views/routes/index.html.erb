@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Routes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start location</th>
+      <th>End location</th>
+      <th>Distance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.start_location_id %></td>
+        <td><%= route.end_location_id %></td>
+        <td><%= route.distance %></td>
+        <td><%= link_to 'Show', route %></td>
+        <td><%= link_to 'Edit', edit_route_path(route) %></td>
+        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Route', new_route_path %>
