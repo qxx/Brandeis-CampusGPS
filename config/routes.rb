@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :routes
+
+  resources :locations
+
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login' => :new
@@ -22,11 +26,15 @@ Rails.application.routes.draw do
 
   resources :paths
 
-  resources :entrances
+#  resources :entrances
 
   get 'outdoor/index'
 
-  resources :buildings
+  resources :buildings do
+    resources :entrances
+  end
+
+  resources :entrances
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

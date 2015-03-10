@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start location:</strong>
+  <%= @route.start_location_id %>
+</p>
+
+<p>
+  <strong>End location:</strong>
+  <%= @route.end_location_id %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @route.distance %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

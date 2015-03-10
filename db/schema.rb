@@ -11,22 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302203615) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.string   "hashed_password"
-    t.string   "salt"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+ActiveRecord::Schema.define(version: 20150310033913) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.string   "photo"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -34,19 +24,52 @@ ActiveRecord::Schema.define(version: 20150302203615) do
   create_table "entrances", force: :cascade do |t|
     t.string   "photo"
     t.integer  "building_id"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "entrances", ["building_id"], name: "index_entrances_on_building_id"
 
+  create_table "locations", force: :cascade do |t|
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "loc_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "path_buildings", force: :cascade do |t|
+    t.integer  "path_id"
+    t.integer  "building_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "paths", force: :cascade do |t|
     t.text     "description"
-    t.integer  "distance"
-    t.integer  "start_Location_id"
-    t.integer  "end_Location_id"
-    t.integer  "direction"
-    t.integer  "PathPhotos_id"
+    t.float    "distance"
+    t.integer  "start_location_id"
+    t.integer  "end_location_id"
+    t.float    "direction"
+    t.string   "photo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "route_constructors", force: :cascade do |t|
+    t.integer  "route_id"
+    t.integer  "path_id"
+    t.integer  "path_order"
+    t.float    "turning_direction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.integer  "start_location_id"
+    t.integer  "end_location_id"
+    t.float    "distance"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
