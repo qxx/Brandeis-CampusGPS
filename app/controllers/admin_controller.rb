@@ -5,5 +5,6 @@ class AdminController < ApplicationController
     @total_entrances = Entrance.count
     @total_buildings = Building.count
     @total_paths = Path.count
+    @total_routes = Route.count
   end
 end

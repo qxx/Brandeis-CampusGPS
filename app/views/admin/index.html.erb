@@ -4,10 +4,14 @@
 
 <p>It's <%= Time.now %></p>
 We have:
-<ul><%= link_to pluralize(@total_users, "user"), users_path %></ul> 
-<ul><%= link_to pluralize(@total_locations, "location"), locations_path %></ul> 
-<ul><%= link_to pluralize(@total_entrances, "entrance"), entrances_path %></ul> 
-<ul><%= link_to pluralize(@total_buildings, "building"), buildings_path %></ul>
-<ul><%= link_to pluralize(@total_paths, "path"), paths_path %></ul>
+<ul>
+  <li><%= link_to pluralize(@total_users, "user"), users_path %></li>
+  <li><%= link_to pluralize(@total_locations, "location"), locations_path %></li>
+  <li><%= link_to pluralize(@total_entrances, "entrance"), entrances_path %></li> 
+  <li><%= link_to pluralize(@total_buildings, "building"), buildings_path %></li>
+  <li><%= link_to pluralize(@total_paths, "path"), paths_path %></li>
+  <li><%= link_to pluralize(@total_routes, "route"), routes_path %></li>
+</ul>
+
 
 <%= button_to 'Logout', logout_path, :method => :delete %>
