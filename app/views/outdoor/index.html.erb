@@ -18,15 +18,9 @@
   <%= select_tag "to", options_from_collection_for_select(@buildings, "id", "name") %>
   <%= submit_tag "GO", :name => nil %>
   </p>
+  </br>
   
 <% end %>
-
-
-<h4>Building List</h4>
-<% @buildings.each do |building| %>
-  <p><%= building.name %></p>
-<% end %>
-
 
 <!-- google map -->
 

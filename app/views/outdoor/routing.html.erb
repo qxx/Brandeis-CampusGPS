@@ -11,9 +11,9 @@
 <!-- searh box --> 
 <%= form_tag outdoor_routing_path, :method => 'get' do %>
   <p>
-  From: <%= text_field_tag :from, @building_from.name %>
+  From: <%= select_tag "from", options_from_collection_for_select(@buildings, "id", "name", params[:from]) %>
   </br>
-  To: <nbsp><%= text_field_tag :to, @building_to.name %>
+  To: <%= select_tag "to", options_from_collection_for_select(@buildings, "id", "name", params[:to]) %>
   <%= submit_tag "GO", :name => nil %>
   </p>
   
