@@ -62,13 +62,15 @@
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   polyline = [{"lat":42.36583329,"lng":-71.25857279},{"lat":42.36589671,"lng":-71.25911325},{"lat":42.36608299,"lng":-71.25907034},{"lat":42.36666959,"lng":-71.25947803},{"lat":42.36713728,"lng":-71.25915751},{"lat":42.36710161,"lng":-71.25910923}]
+  <% if @paths %>
   handler.addPolyline(polyline); 
   handler.bounds.extend(polyline[0]);
   handler.bounds.extend(polyline[ polyline.length - 1]);
+  <% end %>
 
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-  <% if @building_from && @building_to %>
+  <% if @building_from && @building_to && @building_from != @building_to %>
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   <% else %>

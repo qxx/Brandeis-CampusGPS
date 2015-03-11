@@ -36,9 +36,9 @@ class OutdoorController < ApplicationController
       @building_to = Building.find_by name:(params[:to])
     end
 
-    if @building_from && @building_to
+    if @building_from && @building_to && @building_from != @building_to
       route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
-      @paths = route.paths
+      @paths = route.paths if route
     end
 
     @from_track = @building_from ? @building_from.id : 0
@@ -50,6 +50,15 @@ class OutdoorController < ApplicationController
       marker.lng user.longitude
       marker.infowindow user.description
     end
+
+    if @building_from.nil? && @building_to.nil?
+      @centerMarker = 0
+    elsif @building_from.nil?
+      @centerMarker = @to_track -1
+    else
+      @centerMarker = @from_track -1
+    end
+
   end
 
 end
