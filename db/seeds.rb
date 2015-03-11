@@ -14,19 +14,19 @@ Building.delete_all
 Location.delete_all
 Entrance.delete_all
 # First Building
-b['Heller'] = Building.create!(
+b['SSC'] = Building.create!(
   name: 'Carl J. Shapiro Science Center',
   description: 'The Carl J. Shapiro Science Center features 175,000 square feet of biology and chemistry teaching and research lab space overlooking the Brandeis campus. The center houses the university’s National Center for Behavioral Genomics. Seminar and conference areas and an atrium with study space round out the Shapiro Science Center’s interior.',
   photo: 'buildings/shapiro-science-1.jpg'
 )
-l['Heller_e1'] = Location.create!(
+l['SSC_e1'] = Location.create!(
   latitude: 42.56585529,
   longitude: -71.25857279,
   loc_type: 'entrance'
 )
 Entrance.create!(
-  building_id: b['Heller'].id,
-  location_id: l['Heller_e1'].id
+  building_id: b['SSC'].id,
+  location_id: l['SSC_e1'].id
 )
 # Second Building
 b['Volen'] = Building.create!(
