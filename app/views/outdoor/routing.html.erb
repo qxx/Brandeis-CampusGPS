@@ -61,7 +61,12 @@
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  polyline = [{"lat":42.36583329,"lng":-71.25857279},{"lat":42.36589671,"lng":-71.25911325},{"lat":42.36608299,"lng":-71.25907034},{"lat":42.36666959,"lng":-71.25947803},{"lat":42.36713728,"lng":-71.25915751},{"lat":42.36710161,"lng":-71.25910923}]
+  polyline = []
+  <% @locations.each do |loc| %>
+    polyline[polyline.length] = {"lat": <%= loc.latitude %>, "lng": <%= loc.longitude %>}
+  <% end %>
+
+  //polyline = [{"lat":42.36583329,"lng":-71.25857279},{"lat":42.36589671,"lng":-71.25911325},{"lat":42.36608299,"lng":-71.25907034},{"lat":42.36666959,"lng":-71.25947803},{"lat":42.36713728,"lng":-71.25915751},{"lat":42.36710161,"lng":-71.25910923}]
   <% if @paths %>
   handler.addPolyline(polyline); 
   handler.bounds.extend(polyline[0]);

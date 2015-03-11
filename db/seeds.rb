@@ -20,7 +20,7 @@ b['SSC'] = Building.create!(
   photo: 'buildings/shapiro-science-1.jpg'
 )
 l['SSC_e1'] = Location.create!(
-  latitude: 42.56585529,
+  latitude: 42.36585529,
   longitude: -71.25857279,
   loc_type: 'entrance'
 )
@@ -35,7 +35,7 @@ b['Volen'] = Building.create!(
   photo: 'buildings/Volen.jpg'
 )
 l['Volen_e1'] = Location.create!(
-  latitude: 42.56710161,
+  latitude: 42.36710161,
   longitude: -71.25910925,
   loc_type: 'entrance'
 )
@@ -50,7 +50,7 @@ b['Heller'] = Building.create!(
   photo: 'buildings/HellerBrown-1.jpg'
 )
 l['Heller_e1'] = Location.create!(
-  latitude: 42.569115,
+  latitude: 42.369115,
   longitude:  -71.258427,
   loc_type: 'entrance'
 )
@@ -66,7 +66,7 @@ b['Mandel'] = Building.create!(
   photo: 'buildings/mandel.jpg'
 )
 l['Mandel_e1'] = Location.create!(
-  latitude: 42.569592,
+  latitude: 42.369592,
   longitude:  -71.258119,
   loc_type: 'entrance'
 )
@@ -142,16 +142,25 @@ RouteConstructor.create!([
   }
 ])
 
-p[4] = Path.create!(
-  description: 'Heller to Volen',
+p[3] = Path.create!(
+  description: 'SSC to Mandel',
   distance: 2,
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Volen_e1'].id,
+  start_location_id: l['SSC_e1'].id,
+  end_location_id: l['Mandel_e1'].id,
+  direction: 180
+)
+
+
+p[4] = Path.create!(
+  description: 'Mandel to SSC',
+  distance: 2,
+  start_location_id: l['Mandel_e1'].id,
+  end_location_id: l['SSC_e1'].id,
   direction: 180
 )
 r[4] = Route.create!(
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Volen_e1'].id,
+  start_location_id: l['Mandel_e1'].id,
+  end_location_id: l['SSC_e1'].id,
   distance: 2
 )
 RouteConstructor.create!([
@@ -203,15 +212,15 @@ RouteConstructor.create!([
 ])
 
 p[7] = Path.create!(
-  description: 'Heller to Heller',
+  description: 'Volen to SSC',
   distance: 4,
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Heller_e1'].id,
+  start_location_id: l['Volen_e1'].id,
+  end_location_id: l['SSC_e1'].id,
   direction: 0
 )
 r[7] = Route.create!(
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Heller_e1'].id,
+  start_location_id: l['Volen_e1'].id,
+  end_location_id: l['SSC_e1'].id,
   distance: 4
 )
 RouteConstructor.create!([
@@ -223,15 +232,15 @@ RouteConstructor.create!([
 ])
 
 p[8] = Path.create!(
-  description: 'Heller to Heller',
+  description: 'SSC to Volen',
   distance: 4,
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Heller_e1'].id,
+  start_location_id: l['SSC_e1'].id,
+  end_location_id: l['Volen_e1'].id,
   direction: 180
 )
 r[8] = Route.create!(
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Heller_e1'].id,
+  start_location_id: l['SSC_e1'].id,
+  end_location_id: l['Volen_e1'].id,
   distance: 4
 )
 RouteConstructor.create!([
@@ -282,45 +291,7 @@ RouteConstructor.create!([
   }
 ])
 
-p[11] = Path.create!(
-  description: 'Heller to Mandel',
-  distance: 6,
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Mandel_e1'].id,
-  direction: 0
-)
-r[11] = Route.create!(
-  start_location_id: l['Heller_e1'].id,
-  end_location_id: l['Mandel_e1'].id,
-  distance: 6
-)
-RouteConstructor.create!([
-  { route_id: r[11].id,
-    path_id: p[11].id,
-    path_order: 11,
-    turning_direction: 0
-  }
-])
 
-p[12] = Path.create!(
-  description: 'Mandel to Heller',
-  distance: 6,
-  start_location_id: l['Mandel_e1'].id,
-  end_location_id: l['Heller_e1'].id,
-  direction: 180
-)
-r[12] = Route.create!(
-  start_location_id: l['Mandel_e1'].id,
-  end_location_id: l['Heller_e1'].id,
-  distance: 6
-)
-RouteConstructor.create!([
-  { route_id: r[12].id,
-    path_id: p[12].id,
-    path_order: 12,
-    turning_direction: 0
-  }
-])
 
 User.delete_all
 User.create!(
