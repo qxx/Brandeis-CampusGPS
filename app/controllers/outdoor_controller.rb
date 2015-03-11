@@ -29,6 +29,7 @@ class OutdoorController < ApplicationController
 #  end
 
   def routing
+    @buildings = Building.order(:name)
     if params[:from]
       @building_from = Building.find_by name:(params[:from])
     end
