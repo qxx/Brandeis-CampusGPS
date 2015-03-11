@@ -31,10 +31,10 @@ class OutdoorController < ApplicationController
   def routing
     @buildings = Building.order(:name)
     if params[:from]
-      @building_from = Building.find_by name:(params[:from])
+      @building_from = Building.find(params[:from])
     end
     if params[:to]
-      @building_to = Building.find_by name:(params[:to])
+      @building_to = Building.find(params[:to])
     end
 
     if @building_from && @building_to && @building_from != @building_to
