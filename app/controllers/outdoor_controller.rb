@@ -80,6 +80,7 @@ class OutdoorController < ApplicationController
     end
     if @locations.nil? 
       @locations = [Location.find(@building_from.loc_id)]
+      @centerMarker = 0
     end
 
     @from_track = @building_from ? @building_from.id : 0
@@ -91,15 +92,6 @@ class OutdoorController < ApplicationController
       marker.lng user.longitude
       marker.infowindow user.description
     end
-
-    if @building_from.nil? && @building_to.nil?
-      @centerMarker = 0
-    elsif @building_from.nil?
-      @centerMarker = @to_track -1
-    else
-      @centerMarker = @from_track -1
-    end
-
   end
 
 end
