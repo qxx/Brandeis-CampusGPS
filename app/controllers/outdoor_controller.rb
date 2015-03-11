@@ -60,6 +60,7 @@ class OutdoorController < ApplicationController
         search = Astar.new(neighbor_locations)
         search_result = search.astar(Location.find(@building_from.loc_id), Location.find(@building_to.loc_id))
         @locations = search_result
+        
         @paths = @locations.map.with_index do |loc,i|
           if i == @locations.length - 1
             nil
@@ -76,6 +77,9 @@ class OutdoorController < ApplicationController
         #end
         #@locations << @paths.last.end_location_id
       #end
+    end
+    if @locations.nil? 
+      @locations = [Location.find(@building_from.loc_id)]
     end
 
     @from_track = @building_from ? @building_from.id : 0

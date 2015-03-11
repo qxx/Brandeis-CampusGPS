@@ -58,7 +58,7 @@ class Astar
             end
         end
         if !found
-            return error
+            return nil
         end
     end
 
