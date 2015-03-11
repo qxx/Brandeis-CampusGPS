@@ -122,25 +122,6 @@ RouteConstructor.create!([
   }
 ])
 
-p[5] = Path.create!(
-  description: 'Volen to Heller',
-  distance: 2,
-  start_location_id: l['Volen_e1'].id,
-  end_location_id: l['Heller_e1'].id,
-  direction: 0
-)
-r[5] = Route.create!(
-  start_location_id: l['Volen_e1'].id,
-  end_location_id: l['Heller_e1'].id,
-  distance: 2
-)
-RouteConstructor.create!([
-  { route_id: r[5].id,
-    path_id: p[5].id,
-    path_order: 5,
-    turning_direction: 0
-  }
-])
 
 p[3] = Path.create!(
   description: 'SSC to Mandel',

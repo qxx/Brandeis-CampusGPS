@@ -117,7 +117,7 @@ class OutdoorController < ApplicationController
 
     if @building_from && @building_to && @building_from != @building_to
       route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
-      if route.nil?
+      #if route.nil?
         neighbor_locations = {}
         Location.all.each do |l|
           neighbor_locations[l] = []
@@ -140,15 +140,14 @@ class OutdoorController < ApplicationController
           end
         end
         @paths.pop
-        puts "*******************#{@locations}"
-        puts "))))))))))))))))))))#{@paths}"
-      else
-        @paths = route.paths
-        @locations = @paths.map do |p|
-          p.start_location_id
-        end
-        @locations << @paths.last.end_location_id
-      end
+       
+      #else
+        #@paths = route.paths
+        #@locations = @paths.map do |p|
+          #p.start_location_id
+        #end
+        #@locations << @paths.last.end_location_id
+      #end
     end
 
     @from_track = @building_from ? @building_from.id : 0
