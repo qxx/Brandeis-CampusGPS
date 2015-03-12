@@ -3,15 +3,15 @@
 one:
   description: From Usdan to Volen
   distance: 5
-  start_Location_id: 1
-  end_Location_id: 2
+  start_location_id: one
+  end_location_id: two
   direction: 1
-  PathPhotos_id: 1
+  photo: url
 
 two:
   description: From Library to Kutz
   distance: 10
-  start_Location_id: 3
-  end_Location_id: 4
+  start_location_id: two
+  end_location_id: one
   direction: 2
-  PathPhotos_id: 1
+  photo: url
