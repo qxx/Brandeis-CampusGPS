@@ -8,12 +8,27 @@
 <h1>Campus GPS</h1>
 <%= link_to 'Login', login_url %>
 
+
+<script>
+var building_names = <%= raw @building_names %>;
+$(function() {
+  $( "#from" ).autocomplete({
+    source: building_names,
+    minLength: 2,
+  });
+  $( "#to" ).autocomplete({
+    source: building_names,
+    minLength: 2,
+  });
+});
+</script>
+
 <!-- searh box --> 
 <%= form_tag outdoor_routing_path, :method => 'get' do %>
   <p>
-  From: <%= select_tag "from", options_from_collection_for_select(@buildings, "id", "name", params[:from]) %>
+  From: <%= text_field_tag :from, params[:from]%>
   </br>
-  To: <%= select_tag "to", options_from_collection_for_select(@buildings, "id", "name", params[:to]) %>
+  To: <nbsp><%= text_field_tag :to, params[:to]%>
   <%= submit_tag "GO", :name => nil %>
   </p>
   

@@ -5,6 +5,11 @@ class BuildingsController < ApplicationController
   # GET /buildings.json
   def index
     @buildings = Building.all
+
+    respond_to do |format|
+      format.html
+      format.json {render :json => @buildings.select([:name, :id])}
+    end
   end
 
   # GET /buildings/1

@@ -14,7 +14,7 @@
 
   <tbody>
     <% @routes.each do |route| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" style="text-align:center">
         <td><%= route.start_location_id %></td>
         <td><%= route.end_location_id %></td>
         <td><%= route.distance %></td>
