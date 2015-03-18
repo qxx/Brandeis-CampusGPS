@@ -1,6 +1,7 @@
 class CreatePaths < ActiveRecord::Migration
   def change
     create_table :paths do |t|
+      t.string :code_name
       t.text :description
       t.float :distance
       t.integer :start_location_id
