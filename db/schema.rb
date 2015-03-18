@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150310033913) do
 
   create_table "buildings", force: :cascade do |t|
+    t.string   "code_name"
     t.string   "name"
     t.string   "description"
     t.string   "photo"
