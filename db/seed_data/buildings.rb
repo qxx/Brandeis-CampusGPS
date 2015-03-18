@@ -46,5 +46,5 @@ BUILDINGS = [
   description: 'The Edison-Lecks building is home to the Brandeis chemistry department and holds labs, classrooms and office space.',
   photo: 'buildings/Edison-Lecks.jpg'
 }
-],
+]
 end
