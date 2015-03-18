@@ -67,9 +67,9 @@ PATHS = [
 },
 {
   description: 'Exit SSC and go to the road in front of you',
-  start_location_id: PathSeeds.l('SSC_e2').id
+  start_location_id: PathSeeds.l('SSC_e2').id,
   end_location_id: PathSeeds.l('FellowsGarden_k1').id
-}
+},
 {
   description: 'Walk toward the physics building',
   start_location_id: PathSeeds.l('FellowsGarden_k1').id,

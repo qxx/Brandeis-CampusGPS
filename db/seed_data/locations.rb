@@ -11,7 +11,7 @@ LOCATIONS = [
   latitude: 42.365874,
   longitude: -71.258681,
   loc_type: 'entrance'
-}
+},
 
 {
   code_name: 'Volen_e1',
