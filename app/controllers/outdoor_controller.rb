@@ -1,8 +1,5 @@
 require_relative './../../lib/astar.rb'
 
-
-
-
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
 
@@ -52,7 +49,7 @@ class OutdoorController < ApplicationController
     end
 
     if @building_from && @building_to && @building_from != @building_to
-      route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
+      #route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
       #if route.nil?
         neighbor_locations = {}
         Location.all.each do |l|
@@ -67,7 +64,21 @@ class OutdoorController < ApplicationController
       
         
         search = Astar.new(neighbor_locations)
-        search_result = search.astar(Location.find(@building_from.loc_id), Location.find(@building_to.loc_id))
+
+        @location_start = @building_from.loc_id.first
+        @location_end = @building_to.loc_id.first
+        shortest_distance = search.distance(@location_start, @location_end)
+        @building_from.loc_id.each do |entrance_from|
+          @building_to.loc_id.each do |entrance_to|
+            if search.distance(entrance_from, entrance_to) < shortest_distance
+              @location_start = entrance_from
+              @location_end = entrance_to
+            end
+          end
+        end
+        
+        search_result = search.astar(@location_start, @location_end)
+        #search_result = search.astar(Location.find(@building_from.loc_id), Location.find(@building_to.loc_id))
         @locations = search_result
         
         @paths = @locations.map.with_index do |loc,i|
@@ -95,12 +106,19 @@ class OutdoorController < ApplicationController
     @from_track = @building_from ? @building_from.id : 0
     @to_track = @building_to ? @building_to.id : 0
 
-    @users = [@building_from, @building_to].compact
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      marker.infowindow user.description
+    @locations_shown = [@location_start, @location_end].compact
+    @hash = Gmaps4rails.build_markers(@locations_shown) do |location_shown, marker|
+      marker.lat location_shown.latitude
+      marker.lng location_shown.longitude
+      marker.infowindow Building.find(Entrance.find_by(location_id:location_shown.id).building_id).description
+
     end
+    #@users = [@building_from, @building_to].compact
+    #@hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      #marker.lat user.latitude
+      #marker.lng user.longitude
+      #marker.infowindow user.description
+    #end
 
     # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
     # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
