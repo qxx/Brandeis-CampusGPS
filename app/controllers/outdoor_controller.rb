@@ -78,7 +78,6 @@ class OutdoorController < ApplicationController
         end
         
         search_result = search.astar(@location_start, @location_end)
-        #search_result = search.astar(Location.find(@building_from.loc_id), Location.find(@building_to.loc_id))
         @locations = search_result
         
         @paths = @locations.map.with_index do |loc,i|
@@ -113,12 +112,6 @@ class OutdoorController < ApplicationController
       marker.infowindow Building.find(Entrance.find_by(location_id:location_shown.id).building_id).description
 
     end
-    #@users = [@building_from, @building_to].compact
-    #@hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      #marker.lat user.latitude
-      #marker.lng user.longitude
-      #marker.infowindow user.description
-    #end
 
     # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
     # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
