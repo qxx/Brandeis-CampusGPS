@@ -16,7 +16,7 @@
 
   <tbody>
     <% @buildings.each do |building| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" style="text-align:center">
         <td><%= building.name %></td>
         <td><%= building.description %></td>
         <td><%= building.photo %></td>

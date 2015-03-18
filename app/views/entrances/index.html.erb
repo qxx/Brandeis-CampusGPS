@@ -13,7 +13,7 @@
 
   <tbody>
     <% @entrances.each do |entrance| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" style="text-align:center">
         <td><%= entrance.photo %></td>
         <td><%= entrance.building %></td>
         <td><%= link_to 'Show', entrance %></td>

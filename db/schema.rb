@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150310033913) do
 
   create_table "buildings", force: :cascade do |t|
+    t.string   "code_name"
     t.string   "name"
     t.string   "description"
     t.string   "photo"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150310033913) do
   add_index "entrances", ["building_id"], name: "index_entrances_on_building_id"
 
   create_table "locations", force: :cascade do |t|
+    t.string   "code_name"
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "loc_type"
@@ -39,14 +41,8 @@ ActiveRecord::Schema.define(version: 20150310033913) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "path_buildings", force: :cascade do |t|
-    t.integer  "path_id"
-    t.integer  "building_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "paths", force: :cascade do |t|
+    t.string   "code_name"
     t.text     "description"
     t.float    "distance"
     t.integer  "start_location_id"

@@ -14,7 +14,7 @@
 
   <tbody>
     <% @locations.each do |location| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" style="text-align:center">
         <td><%= location.latitude %></td>
         <td><%= location.longitude %></td>
         <td><%= location.loc_type %></td>

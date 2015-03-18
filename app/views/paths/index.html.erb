@@ -17,7 +17,7 @@
 
   <tbody>
     <% @paths.each do |path| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") %>" style="text-align:center">
         <td><%= path.description %></td>
         <td><%= path.distance %></td>
         <td><%= path.start_location_id %></td>
