@@ -36,8 +36,7 @@ BUILDINGS = [
   name: 'Gerstenzang Science Library',
   description: 'The Leo Gerstenzang Science Library, located in the Science Complex, houses print resources in the sciences, the Genetic Counseling program, and large science classrooms.',
   photo: 'buildings/gerstenzang.jpg'
-}
-],
+},
 
 # Sixth Building
 {
