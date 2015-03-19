@@ -104,12 +104,22 @@ class OutdoorController < ApplicationController
 
     @from_track = @building_from ? @building_from.id : 0
     @to_track = @building_to ? @building_to.id : 0
-
-    @locations_shown = [@location_start, @location_end].compact
+    @locations_shown = @locations
+    @paths_shown = @paths
+#    @locations_shown = [@location_start, @location_end].compact
     @hash = Gmaps4rails.build_markers(@locations_shown) do |location_shown, marker|
       marker.lat location_shown.latitude
       marker.lng location_shown.longitude
-      marker.infowindow Building.find(Entrance.find_by(location_id:location_shown.id).building_id).description
+      if location_shown.loc_type == 'entrance'
+        building = Building.find(Entrance.find_by(location_id:location_shown.id).building_id)
+        infostring = "<img src=\"/assets/#{building.photo}\" class=\"img-infowindow\"><p>#{building.description}</p>"
+        marker.infowindow infostring
+        marker.title building.name
+      else
+        path = @paths_shown.find {|p| p.start_location_id == location_shown.id}
+        infostring = "<img src=\"/assets/#{path.photo}\" class=\"img-infowindow\"><p>#{path.description}</p>"
+        marker.infowindow infostring
+      end
 
     end
 
@@ -123,7 +133,7 @@ class OutdoorController < ApplicationController
       end
       @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
 
-        # Show link to indoor
+    ## Show link to indoor
     if @building_to && @building_to.code_name == 'Volen'
       @has_floorplan = true
     end
