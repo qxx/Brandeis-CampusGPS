@@ -64,6 +64,12 @@ $(function() {
       <td><%= image_tag(@building_to.photo, class: 'list_image') %></td>
       <% end %>
     </tr>
+    <% if @has_floorplan %>
+    <tr>
+      <td></td>
+      <td><%= link_to 'Enter building', indoor_index_url %></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 

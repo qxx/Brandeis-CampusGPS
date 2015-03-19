@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'indoor/index'
+
+  resources :rooms
+
+  resources :floors
+
   resources :routes
 
   resources :locations
@@ -21,8 +27,6 @@ Rails.application.routes.draw do
   resources :users
 
   get 'outdoor/routing' => 'outdoor#routing'
-
-  get 'outdoor_path/index'
 
   resources :paths
 

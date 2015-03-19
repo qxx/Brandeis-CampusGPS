@@ -9,6 +9,7 @@
 ## Outdoor Locations
 
 Entrance.delete_all
+Floor.delete_all
 Building.delete_all
 Location.delete_all
 
@@ -18,16 +19,27 @@ Building.create!(BuildingSeeds::BUILDINGS)
 require_relative './seed_data/locations.rb'
 Location.create!(LocationSeeds::LOCATIONS)
 
+puts "Outdoor locations done!"
+
+require_relative './seed_data/floors.rb'
+Floor.create!(FloorSeeds::FLOORS)
+
+# require_relative './seed_data/rooms.rb'
+# Room.create!(RoomSeeds::ROOMS)
+
 require_relative './seed_data/entrances.rb'
 Entrance.create!(EntranceSeeds::ENTRANCES)
 
-puts "GOOOOOOOOOOOOOOOOOOOOOD"
+
+puts "Indoor locations done!"
 
 ## Outdoor paths and routes
 
 Path.delete_all
 require_relative './seed_data/paths.rb'
 Path.create!(PathSeeds::PATHS)
+
+puts "Paths done!"
 
 User.delete_all
 User.create!(

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @floor.level %>
+</p>
+
+<p>
+  <strong>Floorplan:</strong>
+  <%= @floor.floorplan %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @floor.building %>
+</p>
+
+<%= link_to 'Edit', edit_floor_path(@floor) %> |
+<%= link_to 'Back', floors_path %>

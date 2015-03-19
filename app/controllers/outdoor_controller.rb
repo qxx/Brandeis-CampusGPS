@@ -15,13 +15,13 @@ class OutdoorController < ApplicationController
 	  end
       # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
       # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
-      if params[:term]
+    if params[:term]
       # Then we limit the number of records assigned to @building, by using the term value as a filter.
-        @building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
-      else
-        @building = Building.all.first
-      end
-      @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
+      @building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
+    else
+      @building = Building.all.first
+    end
+    @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
   end
 
 #  def routing
@@ -122,6 +122,11 @@ class OutdoorController < ApplicationController
         @building = Building.all.first
       end
       @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
-  end
 
-end
+        # Show link to indoor
+    if @building_to && @building_to.code_name == 'Volen'
+      @has_floorplan = true
+    end
+  end # End of Action
+
+end # End of Controller
