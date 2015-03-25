@@ -15,7 +15,7 @@ module EntranceSeeds
     {
       building_id: EntranceSeeds.b('SSC').id,
       location_id: EntranceSeeds.l('SSC_e1').id,
-      floor_id: EntranceSeeds.f('SSC_UL').id
+      floor_id: EntranceSeeds.f('SSC_GL').id
     },
     {
       building_id: EntranceSeeds.b('SSC').id,
