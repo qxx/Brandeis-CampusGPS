@@ -5,10 +5,6 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Campus GPS</h1>
-<%= link_to 'Login', login_url %>
-
-
 <script>
 var building_names = <%= raw @building_names %>;
 $(function() {
@@ -24,60 +20,82 @@ $(function() {
 </script>
 
 <!-- searh box --> 
-<%= form_tag outdoor_routing_path, :method => 'get' do %>
-  <p>
-  From: <%= text_field_tag :from, params[:from]%>
-  </br>
-  To: <nbsp><%= text_field_tag :to, params[:to]%>
-  <%= submit_tag "GO", :name => nil %>
-  </p>
-  
+<%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline" do %>
+  <div class="form-group">
+    <label>From:</label>
+    <%= text_field_tag :from, params[:from], type: "text", class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <label>To:</label>
+    <%= text_field_tag :to, params[:to], type: "text", class: "form-control"%>
+  </div>
+  <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
 <% end %>
 
-<h1>Routing!</h1>
-<table>
-
-  <tbody>
-    <tr>
-      <td><h3>From</h3></td>
-      <% if @building_from.nil? %> 
-      <td>ERROR: first building does not exist</td>
-      <% else %>
-      <td><%= @building_from.name %></td>
-      <td><%= image_tag(@building_from.photo, class: 'list_image') %></td>
-      <% end %>
-    </tr>
-    <% if @paths %>
-    <% @paths.each do |path| %>
-    <tr>
-      <td><%= path.distance %> unit</td>
-      <td><%= path.description %></td>
-    </tr>
-    <% end %>
-    <% end %>
-    <tr>
-      <td><h3>To</h3></td>
-      <% if @building_to.nil? %> 
-      <td>ERROR: second building does not exist</td>
-      <% else %>
-      <td><%= @building_to.name %></td>
-      <td><%= image_tag(@building_to.photo, class: 'list_image') %></td>
-      <% end %>
-    </tr>
-    <% if @has_floorplan %>
-    <tr>
-      <td></td>
-      <td><%= link_to 'Enter building', indoor_index_url %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<!-- google map -->
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<!-- instructions -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <!-- google map -->
+      <div id="map" style='height: 600px;'></div>
+    </div>        
+    <div class="col-sm-4">
+      <table>
+        <tbody>
+          <tr>
+            <td><h3>From</h3></td>
+            <% if @building_from.nil? %> 
+            <td>ERROR: first building does not exist</td>
+            <% else %>
+            <td><%= @building_from.name %></td>
+            <td><%= image_tag(@building_from.photo, class: 'list_image') %></td>
+            <% end %>
+          </tr>
+          <% if @paths %>
+          <% @paths.each do |path| %>
+          <tr>
+            <td><%= path.distance %> unit</td>
+            <td><%= path.description %></td>
+          </tr>
+          <% end %>
+          <% end %>
+          <tr>
+            <td><h3>To</h3></td>
+            <% if @building_to.nil? %> 
+            <td>ERROR: second building does not exist</td>
+            <% else %>
+            <td><%= @building_to.name %></td>
+            <td><%= image_tag(@building_to.photo, class: 'list_image') %></td>
+            <% end %>
+          </tr>
+          <% if @has_floorplan %>
+          <tr>
+            <td></td>
+            <td><%= link_to 'Enter building', indoor_index_url %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+<!-- main menu -->
+<nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= link_to 'CampusGPS', outdoor_url %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'Login', login_url %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'Contact Us', login_url %>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
@@ -88,11 +106,10 @@ $(function() {
     polyline[polyline.length] = {"lat": <%= loc.latitude %>, "lng": <%= loc.longitude %>}
   <% end %>
 
-  //polyline = [{"lat":42.36583329,"lng":-71.25857279},{"lat":42.36589671,"lng":-71.25911325},{"lat":42.36608299,"lng":-71.25907034},{"lat":42.36666959,"lng":-71.25947803},{"lat":42.36713728,"lng":-71.25915751},{"lat":42.36710161,"lng":-71.25910923}]
   <% if @paths %>
   handler.addPolyline(polyline); 
   handler.bounds.extend(polyline[0]);
-  handler.bounds.extend(polyline[ polyline.length - 1]);
+  handler.bounds.extend(polyline[polyline.length - 1]);
   <% end %>
 
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
