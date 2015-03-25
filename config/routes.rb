@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'indoor/index'
 
+  get 'indoor' => 'indoor#index'
+
+
   resources :rooms
 
   resources :floors
