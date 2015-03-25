@@ -27,8 +27,7 @@ BUILDINGS = [
   name: 'Mandel Center for the Humanities',
   description: 'The Jack, Joseph and Morton Mandel Center for the Humanities is the main facility for liberal arts education, including humanities, social sciences, literature, language and philosophy. The four-story center, made up of multiple buildings linked with an outdoor quadrangle, has a 90-seat theater/lecture hall, classrooms, seminar rooms, offices and open workstations.',
   photo: 'buildings/mandel.jpg'
-}
-],
+},
 
 # Fifth Building
 {
@@ -36,8 +35,7 @@ BUILDINGS = [
   name: 'Gerstenzang Science Library',
   description: 'The Leo Gerstenzang Science Library, located in the Science Complex, houses print resources in the sciences, the Genetic Counseling program, and large science classrooms.',
   photo: 'buildings/gerstenzang.jpg'
-}
-],
+},
 
 # Sixth Building
 {

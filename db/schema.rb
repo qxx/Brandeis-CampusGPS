@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310033913) do
+ActiveRecord::Schema.define(version: 20150319042220) do
 
   create_table "buildings", force: :cascade do |t|
     t.string   "code_name"
@@ -26,11 +26,23 @@ ActiveRecord::Schema.define(version: 20150310033913) do
     t.string   "photo"
     t.integer  "building_id"
     t.integer  "location_id"
+    t.integer  "floor_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "entrances", ["building_id"], name: "index_entrances_on_building_id"
+
+  create_table "floors", force: :cascade do |t|
+    t.string   "code_name"
+    t.string   "level"
+    t.string   "floorplan"
+    t.integer  "building_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "floors", ["building_id"], name: "index_floors_on_building_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "code_name"
@@ -52,6 +64,23 @@ ActiveRecord::Schema.define(version: 20150310033913) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "code_name"
+    t.string   "name"
+    t.string   "doortag"
+    t.float    "floorplan_x"
+    t.float    "floorplan_y"
+    t.integer  "floor_id"
+    t.integer  "building_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "rooms", ["building_id"], name: "index_rooms_on_building_id"
+  add_index "rooms", ["floor_id"], name: "index_rooms_on_floor_id"
+  add_index "rooms", ["location_id"], name: "index_rooms_on_location_id"
 
   create_table "route_constructors", force: :cascade do |t|
     t.integer  "route_id"

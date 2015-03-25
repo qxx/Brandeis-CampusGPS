@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  doortag: MyString
+  floorplan_x: 1.5
+  floorplan_y: 1.5
+  floor_id: 
+  building_id: 
+  location_id: 
+
+two:
+  name: MyString
+  doortag: MyString
+  floorplan_x: 1.5
+  floorplan_y: 1.5
+  floor_id: 
+  building_id: 
+  location_id: 
