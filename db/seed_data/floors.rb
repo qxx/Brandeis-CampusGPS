@@ -11,10 +11,6 @@ module FloorSeeds
       building_id: FloorSeeds.b('Volen').id
     },
     {
-<<<<<<< HEAD
-      code_name: 'SSC_UL',
-      level: 'Upper Level',
-=======
       code_name: 'Volen_2',
       level: '2',
       floorplan: 'floorplans/Volen_2.jpg',
@@ -48,7 +44,6 @@ module FloorSeeds
       code_name: 'SSC_GL',
       level: 'Ground Level',
       floorplan: 'floorplans/SSC_GL.jpg',
->>>>>>> 977e56527bbc45d792673cc2550089077ed02e28
       building_id: FloorSeeds.b('SSC').id
     },
     {
