@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ## Outdoor Locations
-
+Room.delete_all
 Entrance.delete_all
 Floor.delete_all
 Building.delete_all
@@ -30,6 +30,8 @@ Floor.create!(FloorSeeds::FLOORS)
 require_relative './seed_data/entrances.rb'
 Entrance.create!(EntranceSeeds::ENTRANCES)
 
+require_relative './seed_data/rooms.rb'
+Room.create!(RoomSeeds::ROOMS)
 
 puts "Indoor locations done!"
 
