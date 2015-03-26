@@ -5,53 +5,6 @@ module PathSeeds
 
 PATHS = [
 {
-  description: 'Assemble a catapult, set the right angle and launch yourself from Heller to Volen.',
-  start_location_id: PathSeeds.l('Heller_e1').id,
-  end_location_id: PathSeeds.l('Volen_e1').id,
-  direction: 0
-}, {
-  description: 'Go back to Heller',
-  start_location_id: PathSeeds.l('Volen_e1').id,
-  end_location_id: PathSeeds.l('Heller_e1').id,
-  direction: 180
-}, {
-  description: 'SSC to Mandel',
-  start_location_id: PathSeeds.l('SSC_e1').id,
-  end_location_id: PathSeeds.l('Mandel_e1').id,
-  direction: 180
-}, {
-  description: 'Mandel to SSC',
-  start_location_id: PathSeeds.l('Mandel_e1').id,
-  end_location_id: PathSeeds.l('SSC_e1').id,
-  direction: 180
-}, {
-  description: 'Volen to Mandel',
-  start_location_id: PathSeeds.l('Volen_e1').id,
-  end_location_id: PathSeeds.l('Mandel_e1').id,
-  direction: 0
-}, {
-  description: 'Mandel to Volen',
-  start_location_id: PathSeeds.l('Mandel_e1').id,
-  end_location_id: PathSeeds.l('Volen_e1').id,
-  direction: 180
-}, {
-  description: 'Volen to SSC',
-  start_location_id: PathSeeds.l('Volen_e1').id,
-  end_location_id: PathSeeds.l('SSC_e1').id,
-  direction: 0
-},  {
-  description: 'Heller to Mandel',
-  start_location_id: PathSeeds.l('Heller_e1').id,
-  end_location_id: PathSeeds.l('Mandel_e1').id,
-  direction: 0
-}, {
-  description: 'Mandel to Heller',
-  start_location_id: PathSeeds.l('Mandel_e1').id,
-  end_location_id: PathSeeds.l('Heller_e1').id,
-  direction: 180
-}, 
-# Real paths
-{
   description: 'Exit SSC and go down stairs',
   start_location_id: PathSeeds.l('SSC_e1').id,
   end_location_id: PathSeeds.l('FellowsGarden_k1').id,
