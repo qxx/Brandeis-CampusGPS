@@ -2,6 +2,9 @@ require_relative './../../lib/astar.rb'
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
+  include OutdoorHelper
+
+
 
   def index
     @buildings = Building.order(:name)
@@ -56,33 +59,20 @@ class OutdoorController < ApplicationController
     if @building_from && @building_to && @building_from != @building_to
       #route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
       #if route.nil?
-        neighbor_locations = {}
-        Location.all.each do |l|
-          neighbor_locations[l] = []
-        end
-
-        Path.all.each do |p|
-          start_loc = Location.find(p.start_location_id)
-          end_loc = Location.find(p.end_location_id)
-          neighbor_locations[start_loc] << end_loc
-        end
-      
-        
-        search = Astar.new(neighbor_locations)
-
+        check_graph
         @location_start = @building_from.loc_id.first
         @location_end = @building_to.loc_id.first
-        shortest_distance = search.distance(@location_start, @location_end)
+        shortest_distance = @@astar.distance(@location_start, @location_end)
         @building_from.loc_id.each do |entrance_from|
           @building_to.loc_id.each do |entrance_to|
-            if search.distance(entrance_from, entrance_to) < shortest_distance
+            if @@astar.distance(entrance_from, entrance_to) < shortest_distance
               @location_start = entrance_from
               @location_end = entrance_to
             end
           end
         end
         
-        search_result = search.astar(@location_start, @location_end)
+        search_result = @@astar.astar(@location_start, @location_end)
         @locations = search_result
         
         @paths = @locations.map.with_index do |loc,i|
@@ -143,5 +133,12 @@ class OutdoorController < ApplicationController
       @has_floorplan = true
     end
   end # End of Action
+
+  private
+  
+  def check_graph
+    @@astar = create_graph
+  end
+
 
 end # End of Controller
