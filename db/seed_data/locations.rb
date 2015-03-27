@@ -108,7 +108,7 @@ LOCATIONS = [
 {
   code_name: 'Gzang_e1',
   latitude: 42.366978,
-  longitude:  -71.258363s,
+  longitude:  -71.258363,
   loc_type: 'entrance'
 },
 
