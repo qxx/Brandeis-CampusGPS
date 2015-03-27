@@ -1,4 +1,4 @@
-require_relative './../../lib/astar.rb'
+
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
@@ -16,39 +16,15 @@ class OutdoorController < ApplicationController
   		marker.lng -71.259510
 #  		marker.infowindow user.description
 	  end
-      # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
-      # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
-    if params[:term]
-      # Then we limit the number of records assigned to @building, by using the term value as a filter.
-      @building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
-    else
-      @building = Building.all.first
-    end
-    @building_names = []
-    Building.all.select(:name, :code_name).each do |building|
-      @building_names << { label: "#{building.name}", value: "#{building.name}"}
-      @building_names << { label: "#{building.code_name}", value: "#{building.name}"}
-    end
-    @building_names = @building_names.to_json
+
+    ## autocomplete
+    @building_names = auto_complete(params)
+
   end
 
-#  def routing
-#    @buildingsfrom = Building.all.order(:name)
-#    @buildingsto = Building.all.order(:name)
-#    if params[:from]
-#      @buildingsfrom = Building.all.find_by name:(params[:from])
-#    else
-#      @buildingsfrom = Building.all.order(:name)
-#    end
-#    if params[:to]
-#      @buildingsto = Building.all.find_by name:(params[:to])
-#    else
-#      @buildingsto = Building.all.order(:name)
-#    end
-#  end
 
   def routing
-    @buildings = Building.order(:name)
+    ## Get buildings from params
     if params[:from]
       @building_from = Building.find_by name:(params[:from])
     end
@@ -56,77 +32,19 @@ class OutdoorController < ApplicationController
       @building_to = Building.find_by name:(params[:to])
     end
 
+    ## run algorithm
     if @building_from && @building_to && @building_from != @building_to
-      #route = Route.where(start_location_id: @building_from.loc_id, end_location_id: @building_to.loc_id).first
-      #if route.nil?
         check_graph
-        @location_start = @building_from.loc_id.first
-        @location_end = @building_to.loc_id.first
-        shortest_distance = @@astar.distance(@location_start, @location_end)
-        @building_from.loc_id.each do |entrance_from|
-          @building_to.loc_id.each do |entrance_to|
-            if @@astar.distance(entrance_from, entrance_to) < shortest_distance
-              @location_start = entrance_from
-              @location_end = entrance_to
-            end
-          end
-        end
-        
-        search_result = @@astar.astar(@location_start, @location_end)
-        @locations = search_result
-        
-        @paths = @locations.map.with_index do |loc,i|
-          if i == @locations.length - 1
-            nil
-          else
-            Path.find_by(start_location_id: @locations[i].id, end_location_id: @locations[i+1].id)
-          end
-        end
-        @paths.pop
-       
-      #else
-        #@paths = route.paths
-        #@locations = @paths.map do |p|
-          #p.start_location_id
-        #end
-        #@locations << @paths.last.end_location_id
-      #end
+        location_start, location_end = get_location_start_and_end(@@astar, @building_from, @building_to)
+        @locations = @@astar.astar(location_start, location_end)
+        @paths = locations_to_paths(@locations)
     end
-    if @locations.nil? 
-      @locations = [Location.find(@building_from.loc_id)]
-      @centerMarker = 0
-    end
+    
+    ## Google map
+    @hash = gmap_build_markers(@locations, @paths)
 
-    @from_track = @building_from ? @building_from.id : 0
-    @to_track = @building_to ? @building_to.id : 0
-    @locations_shown = @locations
-    @paths_shown = @paths
-#    @locations_shown = [@location_start, @location_end].compact
-    @hash = Gmaps4rails.build_markers(@locations_shown) do |location_shown, marker|
-      marker.lat location_shown.latitude
-      marker.lng location_shown.longitude
-      if location_shown.loc_type == 'entrance'
-        building = Building.find(Entrance.find_by(location_id:location_shown.id).building_id)
-        infostring = "<img src=\"/assets/#{building.photo}\" class=\"img-infowindow\"><p>#{building.description}</p>"
-        marker.infowindow infostring
-        marker.title building.name
-      else
-        path = @paths_shown.find {|p| p.start_location_id == location_shown.id}
-        infostring = "<img src=\"/assets/#{path.photo}\" class=\"img-infowindow\"><p>#{path.description}</p>"
-        marker.infowindow infostring
-      end
-
-    end
-
-    # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
-    # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
-      if params[:term]
-    # Then we limit the number of records assigned to @building, by using the term value as a filter.
-        @building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
-      else
-        @building = Building.all.first
-      end
-      @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
+    ## auto complete
+    @building_names = auto_complete(params)
 
     ## Show link to indoor
     if @building_to && @building_to.code_name == 'Volen'
@@ -137,7 +55,7 @@ class OutdoorController < ApplicationController
   private
   
   def check_graph
-    @@astar = create_graph
+    @@astar ||= create_graph
   end
 
 
