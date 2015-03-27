@@ -34,6 +34,10 @@ module EntranceSeeds
     {
       building_id: EntranceSeeds.b('Mandel').id,
       location_id: EntranceSeeds.l('Mandel_e1').id
+    },
+    {
+      building_id: EntranceSeeds.b('SCC').id,
+      location_id: EntranceSeeds.l('SCC_e1').id
     }
   ]
 

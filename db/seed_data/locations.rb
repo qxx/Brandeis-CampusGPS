@@ -159,6 +159,34 @@ LOCATIONS = [
   latitude: 42.368813,
   longitude: -71.257312,
   loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_e1',
+  latitude: 42.365886,
+  longitude:  -71.259818,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'SCC_k1',
+  latitude: 42.366161,
+  longitude:  -71.259982,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_k2',
+  latitude: 42.365797,
+  longitude:  -71.259547,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_k3',
+  latitude: 42.365935,
+  longitude:  -71.259767,
+  loc_type: 'keypoint'
 }
 ]
 end

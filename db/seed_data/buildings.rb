@@ -43,6 +43,14 @@ BUILDINGS = [
   name: 'Edison-Lecks Science Building',
   description: 'The Edison-Lecks building is home to the Brandeis chemistry department and holds labs, classrooms and office space.',
   photo: 'buildings/Edison-Lecks.jpg'
+},
+
+# Seventh Building
+{
+  code_name: 'SCC',
+  name: 'Shapiro Campus Center',
+  description: 'The Carl and Ruth Shapiro Campus Center is the center of campus for the university community- students, faculty, administration, alumni and guests. the center includes study spaces; a 249-seat theater designated specifically for undergraduate theater production; a technology library; Einstein Bros. café; a television lounge; and the university bookstore.',
+  photo: 'buildings/shapiro-campus-ctr.jpg'
 }
 ]
 end
