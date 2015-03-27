@@ -9,6 +9,13 @@ function initialize() {
   var mapOptions = {
     zoom: 17
   };
+
+  google.maps.event.addDomListener(window, "resize", function() {
+    var center = map.getCenter();
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(center); 
+  });
+
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
