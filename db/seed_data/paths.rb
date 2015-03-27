@@ -4,13 +4,6 @@ module PathSeeds
   end
 
 PATHS = [
-{
-  description: 'Assemble a catapult, set the right angle and launch yourself from Heller to Volen.',
-  distance: 1,
-  start_location_id: PathSeeds.l('Heller_e1').id,
-  end_location_id: PathSeeds.l('Volen_e1').id,
-  direction: 0
-}, 
 # Real paths
 {
   description: 'Exit SSC and go down stairs',

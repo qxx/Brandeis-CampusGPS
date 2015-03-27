@@ -21,7 +21,12 @@ class OutdoorController < ApplicationController
     else
       @building = Building.all.first
     end
-    @building_names = Building.all.select(:name).map{|building| "#{building.name}"} 
+    @building_names = []
+    Building.all.select(:name, :code_name).each do |building|
+      @building_names << { label: "#{building.name}", value: "#{building.name}"}
+      @building_names << { label: "#{building.code_name}", value: "#{building.name}"}
+    end
+    @building_names = @building_names.to_json
   end
 
 #  def routing
