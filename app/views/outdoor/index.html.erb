@@ -22,8 +22,10 @@ $(function() {
 });
 </script>
 
+<!-- map --> 
+<div id="map-canvas"></div>
 <!-- searh box --> 
-<%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline" do %>
+<%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline", style: "position:absolute;left:80px;top:20px" do %>
   <div class="form-group">
     <label>From:</label>
     <%= text_field_tag :from, params[:from], type: "text", class: "form-control"%>
@@ -36,7 +38,6 @@ $(function() {
 <% end %>
 
 <!-- main menu -->
-<div id="map-canvas"></div>
 <nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
   <div class="container-fluid">
     <div class="row">
