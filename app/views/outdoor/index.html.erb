@@ -30,6 +30,44 @@ function initialize() {
   } else {
     handleNoGeolocation(false);
   }
+
+  map.set('styles', [
+    {
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [
+        { color: '#CCFFFF' },
+        { weight: 1.6 }
+      ]
+    }, {
+      featureType: 'road',
+      elementType: 'labels',
+      stylers: [
+        { saturation: -100 },
+        { invert_lightness: true }
+      ]
+    }, {
+      featureType: 'landscape',
+      elementType: 'geometry',
+      stylers: [
+        { color: '#ffffff' },
+        { gamma: 1.4 }
+      ]
+    }, {
+      featureType: 'poi',
+      elementType: 'geometry',
+      stylers: [
+        { visibility: 'off' }
+      ]
+    }, {
+      featureType: 'poi.school',
+      elementType: 'geometry',
+      stylers: [
+        { visibility: 'on' },
+        { color: '#ccffcc' }
+      ]
+    }
+  ]);
 }
 
 function handleNoGeolocation(errorFlag) {
