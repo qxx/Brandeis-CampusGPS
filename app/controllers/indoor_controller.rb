@@ -7,6 +7,8 @@ class IndoorController < ApplicationController
  	if params[:floorplan]
 		@floorplan = (Floor.find_by floorplan:("floorplans/#{params[:floorplan]}.jpg")).floorplan
 	end
+    @overlay_x = 200
+    @overlay_y = 200
   end
 
 

@@ -1,7 +1,7 @@
 <h1>You are currently in <%= @floorplan.split("_").first[11..-1] %> Level: <%= @floorplan.split("_").last[0..-5] %></h1>
 
 
-<div style="float: left">
+<div>
 
 <%= form_tag '/indoor/index', :method=> :get do %>
 	<%= select_tag "floorplan", options_for_select((@floors.map {|x| x.floorplan.split("/").last[0..-5]})) %>
@@ -19,6 +19,7 @@
 
 <div class="image-container">
 <%= image_tag(@floorplan, class: 'floorplan') %>
+<div id="overlay" style="left: <%= @overlay_x %>px; top: <%= @overlay_y %>px;"></div>
 </div>
 
 <div style="bottom: 0px">
