@@ -1,18 +1,24 @@
-<h1>You are currently in <%= @floorplan.split("_").first[11..-1] %> Level: <%= @floorplan.split("_").last[0..-5] %></h1>
+<script>
+function changePic(val){
+	$(".image-container").html("<img src='/assets/floorplans/Volen_"+val+"-5f9dc8f130f2ac0b1c812f04c51edbbc.jpg' class='floorplan'>");
+	$(".current-floor").html(val);
+}
+</script>
 
 
-<div>
+<h1>You are currently in <%= @floorplan.split("_").first[11..-1] %> Level: <span class="current-floor"><%= @floorplan.split("_").last[0..-5] %></span></h1>
 
-<%= form_tag '/indoor/index', :method=> :get do %>
-	<%= select_tag "floorplan", options_for_select((@floors.map {|x| x.floorplan.split("/").last[0..-5]})) %>
-	<%= submit_tag "Search", :name=>nil %>
-<% end %>
 
-<p>List of floors in <%= @floorplan.split("_").first[11..-1] %></p>
+<div style="float: left; text-align: center">
+
+
+<p style="font-weight: bold; font-size: 2em">Floors in <%= @floorplan.split("_").first[11..-1] %></p>
 <% @floors.each do |floor| %>
-	<p>
-		<%= floor.floorplan.split("_").last[0..-5]; %>
-	</p>
+	<% plan_name = floor.floorplan.split('_').last[0..-5] %>
+	<button onclick="changePic(
+		'<%= plan_name %>')" type="button">
+		<%= plan_name %>
+	</button>
 <% end %>
 
 </div>
@@ -23,16 +29,5 @@
 </div>
 
 <div style="bottom: 0px">
-	<%= link_to "Back", "javascript:history.go(-1);" %>
+	<%= link_to "Back to Directions", "javascript:history.go(-1);" %>
 </div>
-
-
-<!--
-<% @images.each do |image| %>
-	<% if image.include?("Volen") %>
-		<%= image_tag image.gsub("app/assets/images/", ""), class: 'floorplan' %>
-	<p>contains volen</p>
-	<% end %>
-
-<% end %>
--->
