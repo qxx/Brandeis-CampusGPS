@@ -15,6 +15,10 @@ module OutdoorHelper
     astar = Astar.new(neighbor_locations)
   end
 
+  def get_distance(graph, location_start, location_end)
+    graph.distance(location_start, location_end)
+  end
+
   def get_location_start_and_end(graph, building_from, building_to)
     location_start = building_from.loc_id.first
     location_end = building_to.loc_id.first
