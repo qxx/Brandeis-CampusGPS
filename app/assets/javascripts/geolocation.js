@@ -22,7 +22,7 @@ function initialize() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Your location'
+        content: 'You'
       });
 
       map.setCenter(pos);
@@ -39,7 +39,7 @@ function initialize() {
       featureType: 'road',
       elementType: 'geometry',
       stylers: [
-        { color: '#CCFFFF' },
+        { color: '#AAAAAA' },
         { weight: 1.6 }
       ]
     }, {
@@ -67,7 +67,7 @@ function initialize() {
       elementType: 'geometry',
       stylers: [
         { visibility: 'on' },
-        { color: '#ccffcc' }
+        { color: '#FFFFCC' }
       ]
     }
   ]);
