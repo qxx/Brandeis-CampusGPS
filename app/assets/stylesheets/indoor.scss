@@ -1,3 +1,21 @@
 // Place all the styles related to the Indoor controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image-container {
+    position: relative;
+    width: 816px;
+    height: 564px;
+}
+
+.floorplan {
+    width: 100%;
+    height: 100%;
+}
+
+#overlay {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+}
