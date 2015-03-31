@@ -39,7 +39,7 @@ function initialize() {
       featureType: 'road',
       elementType: 'geometry',
       stylers: [
-        { color: '#AAAAAA' },
+        { color: '#F0FFFF' },
         { weight: 1.6 }
       ]
     }, {
@@ -53,7 +53,7 @@ function initialize() {
       featureType: 'landscape',
       elementType: 'geometry',
       stylers: [
-        { color: '#ffffff' },
+        { color: '#F7E7CE' },
         { gamma: 1.4 }
       ]
     }, {
@@ -67,7 +67,7 @@ function initialize() {
       elementType: 'geometry',
       stylers: [
         { visibility: 'on' },
-        { color: '#FFFFCC' }
+        { color: '#CFECEC' }
       ]
     }
   ]);
