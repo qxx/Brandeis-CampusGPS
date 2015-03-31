@@ -30,6 +30,7 @@ $(function() {
       <!-- google map -->
       <div id="map" style='height: 600px;'></div>
     </div>
+
     <div class="col-md-4">
       <div class="col-md-11 col-md-offset-1">  
         <div class="row">&nbsp;</div>
@@ -54,7 +55,7 @@ $(function() {
           <% if @paths %>
             <% @paths.each do |path| %>
               <div class="row">
-                <div class="col-md-2"> <%= path.distance %> unit </div>
+                <div class="col-md-2"> <span class="glyphicon glyphicon-map-marker red"></div>
                 <div class="col-md-10"> <%= path.description %> </div>
               </div>
             <% end %>

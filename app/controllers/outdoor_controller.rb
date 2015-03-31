@@ -25,11 +25,13 @@ class OutdoorController < ApplicationController
 
   def routing
     ## Get buildings from params
-    if params[:from]
+    if params[:from] && params[:to]
       @building_from = Building.find_by name:(params[:from])
-    end
-    if params[:to]
       @building_to = Building.find_by name:(params[:to])
+    end
+
+    if @building_from.nil? || @building_to.nil?
+      redirect_to outdoor_url
     end
 
     ## run algorithm
