@@ -45,6 +45,41 @@ PATHS = [
   start_location_id: PathSeeds.l('Volen_k2').id,
   end_location_id: PathSeeds.l('Volen_e1').id,
   photo: 'paths/Volen_k2_Volen_e1.jpg'
+},
+{
+  description: 'Climb up the stairs and SSC is right ahead',
+  end_location_id: PathSeeds.l('SSC_e1').id,
+  start_location_id: PathSeeds.l('FellowsGarden_k1').id
+},
+{
+  description: "Don't go up, entrance to SSC is on the right of the stairs.",
+  end_location_id: PathSeeds.l('SSC_e2').id,
+  start_location_id: PathSeeds.l('FellowsGarden_k1').id
+},
+{
+  description: 'Walk pass the physics building and SSC will be on your left',
+  end_location_id: PathSeeds.l('FellowsGarden_k1').id,
+  start_location_id: PathSeeds.l('FellowsGarden_k2').id
+},
+{
+  description: 'Walk along the Fellows Garden',
+  end_location_id: PathSeeds.l('FellowsGarden_k2').id,
+  start_location_id: PathSeeds.l('FellowsGarden_k3').id
+},
+{
+  description: 'Walk down the hill, facing the blue building',
+  end_location_id: PathSeeds.l('FellowsGarden_k3').id,
+  start_location_id: PathSeeds.l('Volen_k1').id
+},
+{
+  description: 'Walk toward the down path once you have left the building',
+  end_location_id: PathSeeds.l('Volen_k1').id,
+  start_location_id: PathSeeds.l('Volen_k2').id
+},
+{
+  description: 'Exit Volen',
+  end_location_id: PathSeeds.l('Volen_k2').id,
+  start_location_id: PathSeeds.l('Volen_e1').id
 }
 ]
 end

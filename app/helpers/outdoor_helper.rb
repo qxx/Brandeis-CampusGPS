@@ -63,7 +63,12 @@ module OutdoorHelper
   end
 
   def build_infostring(object)
-    "<img src=\"/assets/#{object.photo}\" class=\"img-infowindow\"><p>#{object.description}</p>"
+    if object.nil?
+      str = ""
+    else
+      str = "<img src=\"/assets/#{object.photo}\" class=\"img-infowindow\">"
+    end
+    return str + "<p>#{object.description}</p>"
   end
 
   def auto_complete(params)
