@@ -4,10 +4,8 @@
 
 .image-container {
     position: relative;
-    //width: 816px;
-    //height: 564px;
-    width: 50%;
-    height: 500px;
+    width: 816px;
+    height: 579px;
 }
 
 .floorplan {
@@ -17,7 +15,7 @@
 
 #overlay {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background: red;
+    width: 10px;
+    height: 10px;
+    background: mediumvioletred;
 }

@@ -6,10 +6,10 @@ class IndoorController < ApplicationController
     if params[:id]
       @floors = Floor.where("floorplan like ?", "%#{params[:id]}%")
     end
-    @floorplan = @floors.first.floorplan
+    @floorplan = Floor.find(params[:floor_id]).floorplan
 
-    @overlay_x = 200
-    @overlay_y = 200
+    @overlay_x = Room.find_by(doortag: params[:room_tag]).floorplan_x / 4
+    @overlay_y = Room.find_by(doortag: params[:room_tag]).floorplan_y / 4
   end
 
 
