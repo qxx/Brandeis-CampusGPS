@@ -3,7 +3,8 @@
 
 <!-- Geolocation --> 
 <%= javascript_include_tag "geolocation.js" %> 
- 
+<script>google.maps.event.addDomListener(window, 'load', initialize);</script>
+
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
@@ -22,6 +23,8 @@ $(function() {
 });
 </script>
 
+
+
 <!-- map --> 
 <div id="map-canvas"></div>
 <!-- searh box --> 
@@ -35,21 +38,7 @@ $(function() {
     <%= text_field_tag :to, params[:to], type: "text", class: "form-control"%>
   </div>
   <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
+  <button class="btn btn-primary" onclick="getCurrentLocation()" type="button">Where am I?</button>
 <% end %>
 
-<!-- bottom menu -->
-<nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4">
-        <%= link_to 'CampusGPS', outdoor_url %>
-      </div>
-      <div class="col-sm-4">
-        <%= link_to 'Login', login_url %>
-      </div>
-      <div class="col-sm-4">
-        <%= link_to 'Contact Us', login_url %>
-      </div>
-    </div>
-  </div>
-</nav>
+

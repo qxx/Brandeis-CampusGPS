@@ -24,8 +24,12 @@
 }
 
 #map-canvas {
-  width: 100%;
-  height: 800px;
+  position:fixed;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:5px;
+  left:0px;
 }
 
 .img-infowindow {
@@ -35,4 +39,96 @@
 
 .red {
 	color: red;
+}
+
+.row > [class*="col-"] {padding:0;}
+
+.navbar-fixed-bottom {
+    min-height: 20px;
+}
+
+#enter-building a, #enter-building:visited a{
+	font-family: "Arial";
+	font-weight: bold;
+	font-size: 3.5em;
+	cursor: pointer;
+	color: #2d2dff;
+}
+
+#enter-building a:hover{
+	color: #bbb;
+	background-color: #fff;
+}
+
+/*
+.image-container{
+	width: 80%;
+	height: 85vh;
+	overflow: hidden;
+}
+*/
+/*
+.floorplan{
+	height: 85vh;
+	width: 80%;
+}
+*/
+
+/*
+.floorplan:hover{
+	transform: scale(2);
+	overflow: hidden;
+}
+*/
+
+
+
+.ui-front{
+	padding-left: 0px;
+
+}
+
+.ui-front li:hover{
+	color: #bbb;
+}
+
+.ui-front li:last-child:hover{
+	color: #bbb;
+}
+
+.ui-front li{
+	box-shadow: -.15em .15em .2em #888888;
+	border-style: solid;
+	border-right-width: .35em;
+	border-left-width: .35em;
+	border-color: #a5a5a5;
+	border-bottom-width: .2em;
+	border-bottom-style: dotted;
+	border-top: none;
+
+	padding: .2em;
+	width: 17.5%;
+	background-color: #3b8cd6;
+	list-style: none;
+	color: #fff;
+	font-size: 1.15em;
+	text-indent: .1em;
+	cursor: pointer;
+}
+
+.ui-front li:last-child{	
+	border: .35em solid;
+	border-color: #a5a5a5;
+	border-top: none;
+	border-bottom-right-radius: .55em ;
+	border-bottom-left-radius: .55em ;
+
+	padding: .2em;
+	width: 17.5%;
+	background-color: #3b8cd6;
+	list-style: none;
+	color: #fff;
+	font-size: 1.15em;
+	text-indent: .1em;
+	cursor: pointer;
 }

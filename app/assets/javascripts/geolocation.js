@@ -1,9 +1,10 @@
 var map;
+var mapOptions = {
+  zoom: 17,
+  position: new google.maps.LatLng(42.366246, -71.258873)
+};
 
 function initialize() {
-  var mapOptions = {
-    zoom: 17
-  };
 //Center Google map on browser size
   google.maps.event.addDomListener(window, "resize", function() {
     var center = map.getCenter();
@@ -11,66 +12,50 @@ function initialize() {
     map.setCenter(center); 
   });
 //Geolocation
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  map.setCenter(mapOptions.position);
+//Style the base map
+  setMapStyles();  
+}
 
+function setMapStyles(){
+  map.set('styles', [
+  {
+    "featureType": "poi.school",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "weight": 5.3 },
+      { "color": "#001BA7" }
+    ]
+  },{
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#9e503e" }
+    ]
+  }
+  ]);
+}
+
+function getCurrentLocation() {
   if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'You'
-      });
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
+    navigator.geolocation.getCurrentPosition(
+      showCurrentLocation, 
+      function() { handleNoGeolocation(true); }
+    );
   } else {
     handleNoGeolocation(false);
   }
+}
 
-//Style the base map
-  map.set('styles', [
-    {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [
-        { color: '#F0FFFF' },
-        { weight: 1.6 }
-      ]
-    }, {
-      featureType: 'road',
-      elementType: 'labels',
-      stylers: [
-        { saturation: -100 },
-        { invert_lightness: true }
-      ]
-    }, {
-      featureType: 'landscape',
-      elementType: 'geometry',
-      stylers: [
-        { color: '#F7E7CE' },
-        { gamma: 1.4 }
-      ]
-    }, {
-      featureType: 'poi',
-      elementType: 'geometry',
-      stylers: [
-        { visibility: 'off' }
-      ]
-    }, {
-      featureType: 'poi.school',
-      elementType: 'geometry',
-      stylers: [
-        { visibility: 'on' },
-        { color: '#CFECEC' }
-      ]
-    }
-  ]);
+function showCurrentLocation(position){
+  pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+  var marker = new google.maps.Marker({
+    position: pos,
+    map: map
+  });
+  map.setCenter(pos);
+  map.setZoom(18);
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -82,7 +67,7 @@ function handleNoGeolocation(errorFlag) {
 
   var options = {
     map: map,
-    position: new google.maps.LatLng(60, 105),
+    position: new google.maps.LatLng(42.366246, -71.258873),
     content: content
   };
 
@@ -90,4 +75,5 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+
+

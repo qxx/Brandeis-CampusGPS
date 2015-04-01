@@ -37,6 +37,8 @@ $(function() {
   <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
 <% end %>
 
+
+
 <!-- instructions -->
 <div class="container-fluid">
   <div class="row">
@@ -88,48 +90,49 @@ $(function() {
   </div>
 </div>
 
-<!-- bottom menu -->
-<nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4">
-        <%= link_to 'CampusGPS', outdoor_url %>
-      </div>
-      <div class="col-sm-4">
-        <%= link_to 'Login', login_url %>
-      </div>
-      <div class="col-sm-4">
-        <%= link_to 'Contact Us', login_url %>
-      </div>
-    </div>
-  </div>
-</nav>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  polyline = []
+  handler.buildMap({ provider: {
+    styles: [
+      {
+        "featureType": "poi.school",
+        "elementType": "geometry.fill",
+        "stylers": [
+          { "weight": 5.3 },
+          { "color": "#001BA7" }
+        ]
+      },{
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
+        "stylers": [
+          { "color": "#9e503e" }
+        ]
+      }
+    ]
+    }, 
+    internal: {id: 'map'}}, function(){
+      polyline = []
   
-  <% @locations.each do |loc| %>
-    polyline[polyline.length] = {"lat": <%= loc.latitude %>, "lng": <%= loc.longitude %>}
-  <% end %>
+      <% @locations.each do |loc| %>
+        polyline[polyline.length] = {"lat": <%= loc.latitude %>, "lng": <%= loc.longitude %>}
+      <% end %>
 
-  <% if @paths %>
-  handler.addPolyline(polyline); 
-  handler.bounds.extend(polyline[0]);
-  handler.bounds.extend(polyline[polyline.length - 1]);
-  <% end %>
+      <% if @paths %>
+        handler.addPolyline(polyline); 
+        handler.bounds.extend(polyline[0]);
+        handler.bounds.extend(polyline[polyline.length - 1]);
+      <% end %>
 
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-  <% if @building_from && @building_to && @building_from != @building_to %>
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  <% else %>
-    handler.map.centerOn(markers[<%= @centerMarker %>]);
-    handler.getMap().setZoom(17);
-  <% end %>
-
-});
-
+      <% if @building_from && @building_to && @building_from != @building_to %>
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      <% else %>
+        handler.map.centerOn(markers[<%= @centerMarker %>]);
+        handler.getMap().setZoom(17);
+      <% end %>
+    }
+  );
 </script>
