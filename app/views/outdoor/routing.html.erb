@@ -40,68 +40,55 @@ $(function() {
 <!-- instructions -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-8">
-      <!-- google map -->
+    <!-- google map -->
+    <div class="col-xs-12 col-lg-7">
       <div id="map" style='height: 600px;'></div>
-    </div>        
-    <div class="col-sm-4">
-      <table>
-        <tbody>
-          <tr>
-            <td><h3>From</h3></td>
-            <% if @building_from.nil? %> 
-            <td>ERROR: first building does not exist</td>
-            <% else %>
-            <td><%= @building_from.name %></td>
-            <td><%= image_tag(@building_from.photo, class: 'list_image') %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-          <% if @building_from %>
-              <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
-                <p>Enter <%=@building_from.code_name%>
-                </p>
-              </button>
-                <% end %>
-            </td>
-          </tr>
-          <% if @paths %>
-          <% @paths.each do |path| %>
-          <tr>
-            <td><%= path.distance %> unit</td>
-            <td><%= path.description %></td>
-          </tr>
-          <% end %>
-          <% end %>
-          <tr>
-            <td><h3>To</h3></td>
-            <% if @building_to.nil? %> 
-            <td>ERROR: second building does not exist</td>
-            <% else %>
-            <td><%= @building_to.name %></td>
-            <td><%= image_tag(@building_to.photo, class: 'list_image') %></td>
-            <% end %>
-          </tr>
-          <% if @has_floorplan %>
-          <tr>
-            <td></td>
-            <td><% if @building_to %>
-              <button onclick="EnterBuildingFunction('<%= @building_to.code_name %>')" type="button"> 
-                <p>Enter <%=@building_to.code_name%>
-                </p>
-              </button>
-                <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    </div>   
+    <!-- text list -->
+    <div class="col-xs-12 col-lg-5">
+      <div class="col-md-11 col-md-offset-1"> 
+
+        <div class="row">&nbsp;</div>
+
+        <!-- from -->
+        <div class="row"> 
+          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">From:</div>
+          <div class="col-xs-10">
+            <%= @building_from.name %>
+            <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
+              Enter <%=@building_from.code_name%>
+            </button>
+          </div>
+        </div>
+
+        <!-- paths -->
+        <% if @paths %>
+        <% @paths.each do |path| %>
+        <div class="row">
+          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0"> <span class="glyphicon glyphicon-map-marker red"></span></div>
+          <div class="col-xs-10"> <%= path.description %> </div>
+        </div>
+        <% end %>
+        <% end %>
+
+        <!-- to -->
+        <div class="row">
+          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">To:</div>
+          <div class="col-xs-10">
+            <%= @building_to.name %>
+            <button onclick="EnterBuildingFunction('<%= @building_to.code_name %>')" type="button"> 
+              Enter <%=@building_to.code_name%>
+            </button>
+          </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- main menu -->
+<!-- bottom menu -->
 <nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
   <div class="container-fluid">
     <div class="row">
