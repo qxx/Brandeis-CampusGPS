@@ -1,13 +1,13 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<%= form_tag("/indoor/index", method: "get") do %>
+<%= form_tag("/indoor/index/Volen", method: "get") do %>
 
       <div class="form-group">
         <%= label_tag(:q, "Floorplan:") %>
-          <%= select_tag(:floor_id, options_for_select([['First Floor','1'], ['Second Floor', '2'],
-                                                       ['Third Floor','3'], ['Fourth Floor','4'],
-                                                       ['Lower Level','5'], ['Roof Level','6']])) %>
+          <%= select_tag(:code_name, options_for_select([['First Floor','Volen_1'], ['Second Floor', 'Volen_2'],
+                                                       ['Third Floor','Volen_3'], ['Fourth Floor','Volen_4'],
+                                                       ['Lower Level','Volen_5'], ['Roof Level','Volen_6']])) %>
       </div>
 
       <%= label_tag(:q, "Room Tag:") %>
@@ -19,7 +19,7 @@
 
 <div class="image-container">
 <%= image_tag(@floorplan, class: 'floorplan') %>
-<div id="overlay" style="left: <%= @overlay_x %>px; top: <%= @overlay_y %>px;"></div>
+<div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;"></div>
 </div>
 
 <div style="bottom: 0px">
