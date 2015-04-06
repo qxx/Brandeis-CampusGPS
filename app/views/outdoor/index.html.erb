@@ -14,7 +14,7 @@ var building_names = <%= raw @building_names %>;
 $(function() {
   $( "#from" ).autocomplete({
     source: building_names,
-    minLength: 2,
+    minLength: 0,
   });
   $( "#to" ).autocomplete({
     source: building_names,
