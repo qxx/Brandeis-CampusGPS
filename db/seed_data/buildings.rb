@@ -52,5 +52,21 @@ BUILDINGS = [
   description: 'The Carl and Ruth Shapiro Campus Center is the center of campus for the university community- students, faculty, administration, alumni and guests. the center includes study spaces; a 249-seat theater designated specifically for undergraduate theater production; a technology library; Einstein Bros. café; a television lounge; and the university bookstore.',
   photo: 'buildings/shapiro-campus-ctr.jpg'
 }
+
+###################### Ted add building below here ####################
+
+###################### End  ###########################################
+
+###################### Wan add building below here ####################
+
+###################### End  ###########################################
+
+###################### Jing add building below here ###################
+
+###################### End  ###########################################
+
+###################### Xi add building below here #####################
+
+###################### End  ###########################################
 ]
 end
