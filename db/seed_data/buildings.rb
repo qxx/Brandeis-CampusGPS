@@ -51,13 +51,61 @@ BUILDINGS = [
   name: 'Shapiro Campus Center',
   description: 'The Carl and Ruth Shapiro Campus Center is the center of campus for the university community- students, faculty, administration, alumni and guests. the center includes study spaces; a 249-seat theater designated specifically for undergraduate theater production; a technology library; Einstein Bros. café; a television lounge; and the university bookstore.',
   photo: 'buildings/shapiro-campus-ctr.jpg'
-}
+},
 
 ###################### Ted add building below here ####################
 
 ###################### End  ###########################################
 
 ###################### Wan add building below here ####################
+{
+  code_name: 'Library',
+  name: 'Farber Library',
+  description: 'One of three libraries on campus, the Leonard L. Farber Library houses resources and services supporting the humanities, the social sciences, Judaica and creative arts. The university’s multimedia lab is also located here.',
+  photo: 'buildings/farber-library.jpg'
+},
+
+{
+  code_name: 'Rabb',
+  name: 'Rabb Graduate Center',
+  description: 'Rabb Graduate Center houses seminar rooms, faculty and administrative offices, and small offices for graduate students in study areas such as English, Romance Studies, Philosophy, and Environmental Studies.',
+  photo: 'buildings/rabb-graduate.jpg'
+},
+
+{
+  code_name: 'Olin-Sang',
+  name: 'Olin-Sang American Civilization Center',
+  description: 'The Olin-Sang American Civilization Center holds classrooms and offices for various university departments including History, Latin American and Latino Studies, and the Film, Television and Interactive Media program.',
+  photo: 'buildings/OlinSang.jpg'
+},
+
+{
+  code_name: 'Shiffman',
+  name: 'Shiffman Humanities Center',
+  description: 'In the north side of campus, Shiffman Humanities Center houses offices and classrooms for the departments of Romance Studies, German Studies, Russian Studies, European Cultural Studies and Comparative Literature Program.',
+  photo: 'buildings/Shiffman.jpg'
+},
+
+{
+  code_name: 'Golding',
+  name: 'Golding Judaica Center',
+  description: 'The Golding Judaica Center holds classrooms for subject areas including East Asian Studies, Near Eastern and Judaic Studies, and African and Afro-American Studies.',
+  photo: 'buildings/GoldingJudaica.jpg'
+},
+
+{
+  code_name: 'Lown',
+  name: 'Lown Center for Judaica Studies',
+  description: 'The Lown Center for Judaica Studies is home to the Maurice & Marilyn Center for Modern Jewish Studies, the Near Eastern & Judaic Studies program, the Hornstein Jewish Professional Leadership Program and the university’s National Center for Jewish Film.',
+  photo: 'buildings/lown.jpg'
+},
+
+{
+  code_name: 'Kutz',
+  name: 'Kutz Hall',
+  description: 'Kutz Hall houses offices for the Graduate School of Arts and Sciences, the registrar, and Conference and Events Services, as well as the International Students & Scholars Office and the Campus Card Office. The Graduate Student Center on the first floor gives students use of a day locker and a lounge/study site.',
+  photo: 'buildings/Kutz.jpg'
+}
 
 ###################### End  ###########################################
 
