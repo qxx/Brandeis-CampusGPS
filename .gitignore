@@ -21,3 +21,6 @@
 
 # Ignore ruby version
 .ruby-version
+
+# Ignore IDE
+.idea/
