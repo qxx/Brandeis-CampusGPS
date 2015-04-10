@@ -80,35 +80,35 @@ LOCATIONS = [
 {
   code_name: 'Heller_e1',
   latitude: 42.369115,
-  longitude:  -71.258427,
+  longitude: -71.258427,
   loc_type: 'entrance'
 },
 
 {
   code_name: 'Heller_k1',
   latitude: 42.369217,
-  longitude:  -71.258240,
+  longitude: -71.258240,
   loc_type: 'keypoint'
 },
 
 {
   code_name: 'Heller_k2',
   latitude: 42.369328,
-  longitude:  -71.258055,
+  longitude: -71.258055,
   loc_type: 'keypoint'
 },
 
 {
   code_name: 'Mandel_e1',
   latitude: 42.369592,
-  longitude:  -71.258119,
+  longitude: -71.258119,
   loc_type: 'entrance'
 },
 
 {
   code_name: 'Gzang_e1',
   latitude: 42.366978,
-  longitude:  -71.258363,
+  longitude: -71.258363,
   loc_type: 'entrance'
 },
 
@@ -131,6 +131,13 @@ LOCATIONS = [
   latitude: 42.366702,
   longitude: -71.259497,
   loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Library_e1',
+  latitude: 42.367939,
+  longitude: -71.258273 ,
+  loc_type: 'entrance'
 },
 
 {
@@ -164,14 +171,14 @@ LOCATIONS = [
 {
   code_name: 'SCC_e1',
   latitude: 42.365886,
-  longitude:  -71.259818,
+  longitude: -71.259818,
   loc_type: 'entrance'
 },
 
 {
   code_name: 'SCC_k1',
   latitude: 42.366161,
-  longitude:  -71.259982,
+  longitude: -71.259982,
   loc_type: 'keypoint'
 },
 
@@ -185,9 +192,66 @@ LOCATIONS = [
 {
   code_name: 'SCC_k3',
   latitude: 42.365935,
-  longitude:  -71.259767,
+  longitude: -71.259767,
   loc_type: 'keypoint'
 },
+
+{
+  code_name: 'Rabb_e1',
+  latitude: 42.369174,
+  longitude: -71.257283,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'Rabb_k1',
+  latitude: 42.368772,
+  longitude: -71.257132,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Rabb_k2',
+  latitude: 42.369069,
+  longitude: -71.257222,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Kutz_e1',
+  latitude: 42.369029,
+  longitude: -71.256103,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'Kutz_k1',
+  latitude: 42.368811,
+  longitude: -71.256215,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Kutz_k2',
+  latitude: 42.368776,
+  longitude: -71.256561,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Kutz_k3',
+  latitude: 42.368649,
+  longitude: -71.256749,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Golding_e1',
+  latitude: 42.370020, 
+  longitude: -71.257716,
+  loc_type: 'entrance'
+},
+
 ###################### Ted add location below here ####################
 
 ###################### End  ###########################################
