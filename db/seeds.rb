@@ -11,6 +11,7 @@ Room.delete_all
 Entrance.delete_all
 Floor.delete_all
 Building.delete_all
+ParkingLot.delete_all
 Location.delete_all
 
 require_relative './seed_data/buildings.rb'
@@ -18,6 +19,9 @@ Building.create!(BuildingSeeds::BUILDINGS)
 
 require_relative './seed_data/locations.rb'
 Location.create!(LocationSeeds::LOCATIONS)
+
+require_relative './seed_data/parking_lots.rb'
+ParkingLot.create!(ParkingLotSeeds::PARKINGLOTS)
 
 puts "Outdoor locations done!"
 

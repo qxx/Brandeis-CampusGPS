@@ -80,7 +80,7 @@ PATHS = [
   description: 'Exit Volen',
   end_location_id: PathSeeds.l('Volen_k2').id,
   start_location_id: PathSeeds.l('Volen_e1').id
-}
+},
 ###################### Ted add path below here ####################
 
 ###################### End  ###########################################
@@ -94,7 +94,162 @@ PATHS = [
 ###################### End  ###########################################
 
 ###################### Xi add path below here #####################
-
+{
+  description: "Walk along the fellows garden",
+  start_location_id: PathSeeds.l('SCC_k1').id,
+  end_location_id: PathSeeds.l('SCC_k3').id,
+  photo: nil
+},
+{
+  description: "Walk along the fellows garden",
+  start_location_id: PathSeeds.l('SCC_k3').id,
+  end_location_id: PathSeeds.l('SCC_k1').id,
+  photo: nil
+},
+{
+  description: "Entrance to SCC is right ahead",
+  start_location_id: PathSeeds.l('SCC_k3').id,
+  end_location_id: PathSeeds.l('SCC_e1').id,
+  photo: nil
+},
+{
+  description: "Exit SCC",
+  start_location_id: PathSeeds.l('SCC_e1').id,
+  end_location_id: PathSeeds.l('SCC_k3').id,
+  photo: nil
+},
+{
+  description: "Walk through SCC",
+  start_location_id: PathSeeds.l('SCC_e1').id,
+  end_location_id: PathSeeds.l('SCC_i1').id,
+  photo: nil
+},
+{
+  description: "Walk towards the exit",
+  start_location_id: PathSeeds.l('SCC_i1').id,
+  end_location_id: PathSeeds.l('SCC_e1').id,
+  photo: nil
+},
+{
+  description: "Walk towards the exit",
+  start_location_id: PathSeeds.l('SCC_i1').id,
+  end_location_id: PathSeeds.l('SCC_e3').id,
+  photo: nil
+},
+{
+  description: "Walk through SCC",
+  start_location_id: PathSeeds.l('SCC_e3').id,
+  end_location_id: PathSeeds.l('SCC_i1').id,
+  photo: nil
+},
+{
+  description: "Exit SCC and walk across the lawn",
+  start_location_id: PathSeeds.l('SCC_e3').id,
+  end_location_id: PathSeeds.l('SCC_k6').id,
+  photo: nil
+},
+{
+  description: "Walk across the lawn and SCC is right ahead",
+  start_location_id: PathSeeds.l('SCC_k6').id,
+  end_location_id: PathSeeds.l('SCC_e3').id,
+  photo: nil
+},
+{
+  description: "Take the right path and walk down",
+  start_location_id: PathSeeds.l('SCC_k6').id,
+  end_location_id: PathSeeds.l('SCC_k7').id,
+  photo: nil
+},
+{
+  description: "Continue climbing up",
+  start_location_id: PathSeeds.l('SCC_k7').id,
+  end_location_id: PathSeeds.l('SCC_k6').id,
+  photo: nil
+},
+{
+  description: "Continue walking down toward the theatre",
+  start_location_id: PathSeeds.l('SCC_k7').id,
+  end_location_id: PathSeeds.l('SCC_k8').id,
+  photo: nil
+},
+{
+  description: "Walk along the path in the lawn toward the blue building",
+  start_location_id: PathSeeds.l('SCC_k8').id,
+  end_location_id: PathSeeds.l('SCC_k7').id,
+  photo: nil
+},
+{
+  description: "Walk across the road",
+  start_location_id: PathSeeds.l('SCC_k8').id,
+  end_location_id: PathSeeds.l('Admissions_k1').id,
+  photo: nil
+},
+{
+  description: "Walk across the road",
+  start_location_id: PathSeeds.l('Admissions_k1').id,
+  end_location_id: PathSeeds.l('SCC_k8').id,
+  photo: nil
+},
+{
+  description: "Walk along the back of the Admissions building",
+  start_location_id: PathSeeds.l('Admissions_k1').id,
+  end_location_id: PathSeeds.l('TheaterLot_k1').id,
+  photo: nil
+},
+{
+  description: "Walk along the back of the Admissions building",
+  start_location_id: PathSeeds.l('TheaterLot_k1').id,
+  end_location_id: PathSeeds.l('Admissions_k1').id,
+  photo: nil
+},
+{
+  description: "Enter Theater Lot",
+  start_location_id: PathSeeds.l('TheaterLot_k1').id,
+  end_location_id: PathSeeds.l('TheaterLot_p1').id,
+  photo: nil
+},
+{
+  description: "Walk towards the circular building and exit Theater Lot",
+  start_location_id: PathSeeds.l('TheaterLot_p1').id,
+  end_location_id: PathSeeds.l('TheaterLot_k1').id,
+  photo: nil
+},
+{
+  description: "Walk to the back of SCC",
+  start_location_id: PathSeeds.l('SCC_k1').id,
+  end_location_id: PathSeeds.l('SCC_k11').id,
+  photo: nil
+},
+{
+  description: "Walk towards Fellows Garden",
+  start_location_id: PathSeeds.l('SCC_k11').id,
+  end_location_id: PathSeeds.l('SCC_k1').id,
+  photo: nil
+},
+{
+  description: "Walk towards Faculty Club",
+  start_location_id: PathSeeds.l('SCC_k3').id,
+  end_location_id: PathSeeds.l('SCC_k2').id,
+  photo: nil
+},
+{
+  description: "Walk towards SCC",
+  start_location_id: PathSeeds.l('SCC_k2').id,
+  end_location_id: PathSeeds.l('SCC_k3').id,
+  photo: nil
+},
+{
+  description: 'Walk towards Science Complex',
+  start_location_id: PathSeeds.l('SCC_k2').id,
+  end_location_id: PathSeeds.l('FellowsGarden_k1').id,
+  photo: nil
+},
+{
+  description: 'Walk towards the blue building',
+  end_location_id: PathSeeds.l('SCC_k2').id,
+  start_location_id: PathSeeds.l('FellowsGarden_k1').id,
+  photo: nil
+}
 ###################### End  ###########################################
 ]
 end

@@ -26,8 +26,10 @@ class OutdoorController < ApplicationController
   def routing
     ## Get buildings from params
     if params[:from] && params[:to]
-      @building_from = Building.find_by name:(params[:from])
-      @building_to = Building.find_by name:(params[:to])
+      @building_from = Building.find_by(name: params[:from]) 
+      @building_from = ParkingLot.find_by(name: params[:from]) if @building_from.nil?
+      @building_to = Building.find_by(name: params[:to])
+      @building_to = ParkingLot.find_by name:(params[:to]) if @building_to.nil?
     end
 
     if @building_from.nil? || @building_to.nil?

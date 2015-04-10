@@ -57,9 +57,11 @@ $(function() {
           <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">From:</div>
           <div class="col-xs-10">
             <%= @building_from.name %>
+            <% if @building_from.class == Building %>
             <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
               Enter <%=@building_from.code_name%>
             </button>
+            <% end %>
           </div>
         </div>
 
@@ -78,9 +80,11 @@ $(function() {
           <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">To:</div>
           <div class="col-xs-10">
             <%= @building_to.name %>
+            <% if @building_to.class == Building %>
             <button onclick="EnterBuildingFunction('<%= @building_to.code_name %>')" type="button"> 
               Enter <%=@building_to.code_name%>
             </button>
+            <% end %>
           </div>
         </div>
         <div class="row">&nbsp;</div>

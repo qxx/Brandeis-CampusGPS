@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :parking_lots
+
   get 'indoor/index'
 
   get 'indoor' => 'indoor#index'

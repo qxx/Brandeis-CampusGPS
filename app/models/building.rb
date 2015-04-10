@@ -11,6 +11,10 @@ class Building < ActiveRecord::Base
     #Entrance.where(building_id: self.id).first.location_id
   end
 
+  def to_locations
+    loc_id
+  end
+
   #def latitude
     #Location.find(self.loc_id).latitude
   #end
