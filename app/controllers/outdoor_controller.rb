@@ -51,7 +51,7 @@ class OutdoorController < ApplicationController
     @building_names = auto_complete(params)
 
     ## Show link to indoor
-    if @building_to && @building_to.code_name == 'Volen'
+    if @building_to.class == Building && @building_to.code_name == 'Volen'
       @has_floorplan = true
     end
   end # End of Action
