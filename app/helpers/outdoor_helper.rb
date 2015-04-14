@@ -69,7 +69,12 @@ module OutdoorHelper
     str = ""
     return str if object.nil?
     if object.class == Path || object.class == ParkingLot || object.class ==Building
-      str += "<img src=\"/assets/#{object.photo}\" class=\"img-infowindow\">" unless object.photo.nil?
+      unless object.photo.nil?
+        # I know it's weird to use a image_tag helper to build a string outside the controller
+        # then pass the string to the controller so that it can be used by javascript
+        # and finally show on the map which is in the view.
+        str += ActionController::Base.helpers.image_tag(object.photo, class: "img-infowindow")
+      end
     end
     if object.class == ParkingLot || object.class == Building
       str +=  "<p>#{object.name}</p>"
