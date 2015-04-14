@@ -32,6 +32,16 @@
   left:0px;
 }
 
+#map {
+	position:fixed;
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:5px;
+	left:0px;
+	z-index: -1;
+}
+
 .img-infowindow {
 	width: 240px;
 	height: auto;

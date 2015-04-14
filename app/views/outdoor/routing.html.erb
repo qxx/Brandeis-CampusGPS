@@ -15,83 +15,76 @@ var building_names = <%= raw @building_names %>;
 $(function() {
   $( "#from" ).autocomplete({
     source: building_names,
-    minLength: 2,
+    minLength: 0,
   });
   $( "#to" ).autocomplete({
     source: building_names,
-    minLength: 2,
+    minLength: 0,
   });
 });
 </script>
 
-<!-- searh box --> 
-<%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline" do %>
-  <div class="form-group">
-    <label>From:</label>
-    <%= text_field_tag :from, params[:from], type: "text", class: "form-control"%>
-  </div>
-  <div class="form-group">
-    <label>To:</label>
-    <%= text_field_tag :to, params[:to], type: "text", class: "form-control"%>
-  </div>
-  <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
-<% end %>
-
-
+<!-- google map -->
+<div id="map" ></div>
 
 <!-- instructions -->
-<div class="container-fluid">
-  <div class="row">
-    <!-- google map -->
-    <div class="col-xs-12 col-lg-7">
-      <div id="map" style='height: 600px;'></div>
-    </div>   
+<div class="container offsetleft">
+  <div class="row">&nbsp;</div>
+  <div class = "row">
+    <!-- searh box --> 
+    <%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline" do %>
+      <div class="form-group">
+        <label>From:</label>
+        <%= text_field_tag :from, params[:from], type: "text", class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <label>To:  </label>
+        <%= text_field_tag :to, params[:to], type: "text", class: "form-control"%>
+      </div>
+      <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
+      <button class="btn btn-default" onclick="getCurrentLocation()" type="button">Where am I?</button>
+    <% end %>
+  </div>
+
+  <div class="row">&nbsp;</div>
+
+  <div class="container col-sm-7 col-md-5">    
     <!-- text list -->
-    <div class="col-xs-12 col-lg-5">
-      <div class="col-md-11 col-md-offset-1"> 
-
-        <div class="row">&nbsp;</div>
-
         <!-- from -->
-        <div class="row"> 
-          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">From:</div>
-          <div class="col-xs-10">
+        <div class="row setbackground"> 
+            <span class="glyphicon glyphicon-play"></span>
             <%= @building_from.name %>
             <% if @building_from.class == Building %>
             <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
               Enter <%=@building_from.code_name%>
             </button>
             <% end %>
-          </div>
         </div>
 
         <!-- paths -->
         <% if @paths %>
         <% @paths.each do |path| %>
-        <div class="row">
-          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0"> <span class="glyphicon glyphicon-map-marker red"></span></div>
-          <div class="col-xs-10"> <%= path.description %> </div>
+        <div class="row setbackground">
+            <span class="glyphicon glyphicon-map-marker red"></span><%= path.description %>
         </div>
         <% end %>
         <% end %>
 
         <!-- to -->
-        <div class="row">
-          <div class="col-xs-1 col-xs-offset-1 col-lg-offset-0">To:</div>
-          <div class="col-xs-10">
+        <div class="row setbackground">
+          <span class="glyphicon glyphicon-stop"></span>
             <%= @building_to.name %>
             <% if @building_to.class == Building %>
             <button onclick="EnterBuildingFunction('<%= @building_to.code_name %>')" type="button"> 
               Enter <%=@building_to.code_name%>
             </button>
             <% end %>
-          </div>
         </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">&nbsp;</div>
-      </div>
-    </div>
+
+  
   </div>
+  <div class="row">&nbsp;</div>
+  <div class="row">&nbsp;</div>
 </div>
 
 
