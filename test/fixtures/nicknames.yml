@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  building_id: 1
+  name: SSC
+  building: one
 
 two:
-  name: MyString
-  building_id: 1
+  name: Volen
+  building: two
