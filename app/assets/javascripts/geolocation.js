@@ -20,21 +20,20 @@ function initialize() {
 
 function setMapStyles(){
   map.set('styles', [
-  {
-    "featureType": "poi.school",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "weight": 5.3 },
-      { "color": "#001BA7" }
-    ]
-  },{
-    "featureType": "landscape",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#9e503e" }
-    ]
-  }
-  ]);
+      {
+        "featureType": "poi.school",
+        "elementType": "geometry.fill",
+        "stylers": [
+          { "hue": "#2200ff" }
+        ]
+      },{
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
+        "stylers": [
+          { "hue": "#ff0033" }
+        ]
+      }
+    ]);
 }
 
 function getCurrentLocation() {
