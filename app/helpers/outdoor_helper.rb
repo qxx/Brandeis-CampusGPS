@@ -86,18 +86,10 @@ module OutdoorHelper
   end
 
   def auto_complete(params)
-    # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
-    # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
-    if params[:term]
-      # Then we limit the number of records assigned to @building, by using the term value as a filter.
-      building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
-    else
-      building = Building.order(:name)
-    end
     building_names = []
-    Building.all.select(:name, :code_name).each do |building|
-      building_names << { label: "#{building.name}", value: "#{building.name}"}
-      building_names << { label: "#{building.code_name}", value: "#{building.name}"}
+    Nickname.all.select(:name, :building_id).each do |building|
+      building_names << { label: "#{building.name}", value: "#{(Building.find(building.building_id)).name}"}
+      #building_names << { label: "#{building.code_name}", value: "#{building.name}"}
     end
     ParkingLot.all.select(:name).each do |parking_lot|
       building_names << { label: "#{parking_lot.name}", value: "#{parking_lot.name}"}

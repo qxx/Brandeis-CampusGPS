@@ -1,0 +1,25 @@
+<%= form_for(@nickname) do |f| %>
+  <% if @nickname.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nickname.errors.count, "error") %> prohibited this nickname from being saved:</h2>
+
+      <ul>
+      <% @nickname.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :building_id %><br>
+    <%= f.number_field :building_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

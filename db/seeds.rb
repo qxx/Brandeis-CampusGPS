@@ -13,6 +13,7 @@ Floor.delete_all
 Building.delete_all
 ParkingLot.delete_all
 Location.delete_all
+Nickname.delete_all
 
 require_relative './seed_data/buildings.rb'
 Building.create!(BuildingSeeds::BUILDINGS)
@@ -46,6 +47,9 @@ require_relative './seed_data/paths.rb'
 Path.create!(PathSeeds::PATHS)
 
 puts "Paths done!"
+
+require_relative './seed_data/nicknames.rb'
+Nickname.create!(NicknameSeeds::NICKNAMES)
 
 User.delete_all
 User.create!(

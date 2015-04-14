@@ -3,6 +3,7 @@ class Building < ActiveRecord::Base
   has_many :entrances
   has_many :path_buildings
   has_many :paths, through: :path_buildings
+  has_many :nicknames
 
   # This method returns the location id of the building's first entrance
   # Edit here if you want to change the entrance to interact with user's current location

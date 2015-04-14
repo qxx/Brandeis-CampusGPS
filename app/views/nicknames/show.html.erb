@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nickname.name %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @nickname.building_id %>
+</p>
+
+<%= link_to 'Edit', edit_nickname_path(@nickname) %> |
+<%= link_to 'Back', nicknames_path %>
