@@ -1,4 +1,4 @@
-
+ 
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
