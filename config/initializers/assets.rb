@@ -11,4 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery.rails.js )
-Rails.application.config.assets.precompile += %w( geolocation.js )
+Rails.application.config.assets.precompile += %w( underscore-min.js )
+Rails.application.config.assets.precompile += %w( underscore-min.map)

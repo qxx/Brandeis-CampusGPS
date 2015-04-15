@@ -15,11 +15,11 @@ var building_names = <%= raw @building_names %>;
 $(function() {
   $( "#from" ).autocomplete({
     source: building_names,
-    minLength: 1,
+    minLength: 0,
   });
   $( "#to" ).autocomplete({
     source: building_names,
-    minLength: 1,
+    minLength: 0,
   });
 });
 </script>
@@ -42,7 +42,7 @@ $(function() {
         <%= text_field_tag :to, params[:to], type: "text", class: "form-control"%>
       </div>
       <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
-      <button class="btn btn-default" onclick="getCurrentLocation()" type="button">Where am I?</button>
+      <%= link_to "Reset" , outdoor_path, class: "btn btn-default"%>
     <% end %>
   </div>
 
@@ -132,3 +132,5 @@ $(function() {
     }
   );
 </script>
+
+
