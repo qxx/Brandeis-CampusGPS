@@ -11,7 +11,7 @@ module OutdoorHelper
       neighbor_locations[start_loc] << end_loc
     end
     
-    require_relative './../../lib/astar.rb'  
+    require "#{Rails.root}/lib/astar.rb"  
     astar = Astar.new(neighbor_locations)
   end
 

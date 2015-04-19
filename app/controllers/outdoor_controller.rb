@@ -1,4 +1,4 @@
- 
+require "#{Rails.root}/lib/movable.rb"
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize

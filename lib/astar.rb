@@ -1,14 +1,13 @@
+require "#{Rails.root}/lib/movable.rb"
+
 class Astar
     attr_accessor :neighbor_locations
     def initialize(neighbor_locations)
         @neighbor_locations = neighbor_locations
     end
 
-    def distance(beginning, ending)
-        x = (ending.longitude - beginning.longitude) * Math.cos((beginning.latitude + ending.latitude)/2)
-        y = ending.latitude - beginning.latitude
-        r = 20876.1041905
-        return Math.sqrt(x*x+y*y)*r    
+    def distance(start, destination)
+      Movable.distance(start,destination)
     end
 
     def astar(start,destination)        
@@ -20,7 +19,7 @@ class Astar
         
         
         g_score[start] = 0
-        openset[start] = 0 + distance(start,destination)
+        openset[start] = 0 + Movable.distance(start,destination)
         
         current = start
         while !openset.empty?
@@ -46,13 +45,13 @@ class Astar
                 if closedset.include?(neighbor) #if neighor is in closedset
                     next
                 end
-                tentative_g_score = g_score[current] + distance(current,neighbor)
+                tentative_g_score = g_score[current] + Movable.distance(current,neighbor)
 
                 if !openset.has_key?(neighbor) || tentative_g_score < g_score[neighbor] #if neighbor not in openset
                     
                     came_from[neighbor] = current
                     g_score[neighbor] = tentative_g_score
-                    openset[neighbor] = g_score[neighbor] + distance(neighbor,destination)
+                    openset[neighbor] = g_score[neighbor] + Movable.distance(neighbor,destination)
                     
                 end
             end
