@@ -28,7 +28,7 @@ $(function() {
 <div id="map" ></div>
 
 <!-- instructions -->
-<div class="container offsetleft">
+<div class="offsetleft col-xs-8 col-sm-6 col-md-5">
   <div class="row">&nbsp;</div>
   <div class = "row">
     <!-- searh box --> 
@@ -46,9 +46,11 @@ $(function() {
     <% end %>
   </div>
 
+
+
   <div class="row">&nbsp;</div>
 
-  <div class="container col-sm-7 col-md-5">    
+  <div>    
     <!-- text list -->
         <!-- from -->
         <div class="row setbackground"> 
@@ -65,7 +67,12 @@ $(function() {
         <% if @paths %>
         <% @paths.each do |path| %>
         <div class="row setbackground">
-            <span class="glyphicon glyphicon-map-marker red"></span><%= path.description %>
+            <span class="glyphicon glyphicon-map-marker red"></span> <%= path.description %>
+            <% if path.distance %>
+            <%= " for " %><%= "#{path.distance.to_i}" %><%= " feet."%>
+            <% else %>
+            <%= "." %>
+            <% end %>
         </div>
         <% end %>
         <% end %>
@@ -83,10 +90,7 @@ $(function() {
 
   
   </div>
-  <div class="row">&nbsp;</div>
-  <div class="row">&nbsp;</div>
 </div>
-
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

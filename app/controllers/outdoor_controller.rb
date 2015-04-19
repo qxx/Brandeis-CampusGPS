@@ -1,9 +1,8 @@
-require "#{Rails.root}/lib/movable.rb"
+ 
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
   include OutdoorHelper
-
 
 
   def index
@@ -41,6 +40,9 @@ class OutdoorController < ApplicationController
         check_graph
         location_start, location_end = get_location_start_and_end(@@astar, @building_from, @building_to)
         @locations = @@astar.astar(location_start, location_end)
+        if @locations.nil?
+          redirect_to outdoor_url
+        end
         @paths = locations_to_paths(@locations)
     end
     
