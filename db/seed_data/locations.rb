@@ -305,7 +305,7 @@ LOCATIONS = [
   latitude: 42.369888, 
   longitude: -71.257533,
   loc_type: 'keypoint'
-}
+},
 ###################### End  ###########################################
 
 ###################### Jing add location below here ###################

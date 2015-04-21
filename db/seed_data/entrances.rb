@@ -84,7 +84,7 @@ module EntranceSeeds
       building_id: EntranceSeeds.b('Kutz').id,
       location_id: EntranceSeeds.l('Kutz_e1').id,
       photo:'entrances/Kutz_e1.jpg'
-    }
+    },
 ###################### End  ###########################################
 
 ###################### Jing add entrance below here ###################
