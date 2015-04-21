@@ -130,9 +130,6 @@ $(function() {
       <% if (@building_from || @location_pickup) && @building_to && @building_from != @building_to %>
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-      <% else %>
-        handler.map.centerOn(markers[<%= @centerMarker %>]);
-        handler.getMap().setZoom(17);
       <% end %>
     }
   );
