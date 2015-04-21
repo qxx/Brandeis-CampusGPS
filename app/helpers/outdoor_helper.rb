@@ -19,15 +19,15 @@ module OutdoorHelper
     graph.distance(location_start, location_end)
   end
 
-  def get_location_start_and_end(graph, building_from, building_to)
-    locations_start = building_from.to_locations
-    locations_end = building_to.to_locations
+  def get_location_start_and_end(graph, locations_start, locations_end)
+    #locations_start = building_from.to_locations
+    #locations_end = building_to.to_locations
 
     location_start = locations_start[0]
     location_end = locations_end[0]
 
     shortest_distance = graph.distance(location_start, location_end)
-    
+
     locations_start.each do |entrance_from|
       locations_end.each do |entrance_to|
         if graph.distance(entrance_from, entrance_to) < shortest_distance
@@ -36,6 +36,7 @@ module OutdoorHelper
         end
       end
     end
+
     return location_start, location_end
   end
 

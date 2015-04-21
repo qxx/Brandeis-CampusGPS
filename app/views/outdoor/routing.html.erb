@@ -55,8 +55,9 @@ $(function() {
         <!-- from -->
         <div class="row setbackground"> 
             <span class="glyphicon glyphicon-play"></span>
-            <%= @building_from.name %>
+            
             <% if @building_from.class == Building %>
+            <%= @building_from.name %>
             <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
               Enter <%=@building_from.code_name%>
             </button>
@@ -126,7 +127,7 @@ $(function() {
 
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-      <% if @building_from && @building_to && @building_from != @building_to %>
+      <% if (@building_from || @location_pickup) && @building_to && @building_from != @building_to %>
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       <% else %>

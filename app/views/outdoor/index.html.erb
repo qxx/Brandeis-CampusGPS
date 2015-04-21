@@ -27,7 +27,7 @@ $(function() {
 <%= form_tag outdoor_routing_path, :method => 'get', class: "form-inline", style: "position:absolute;left:80px;top:20px" do %>
   <div class="form-group">
     <label>From:</label>
-    <%= text_field_tag :from, params[:from], type: "text", class: "form-control"%>
+    <%= text_field_tag :from, params[:from], type: "text", class: "form-control" %>
   </div>
   <div class="form-group">
     <label>To:</label>
@@ -91,10 +91,33 @@ function getCurrentLocation() {
 
 function showCurrentLocation(position){
   pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+  var pos_array = [];
+  <% @nearest_locations.each_with_index do |nearest, index| %>
+    pos_array[<%= index %>] = new google.maps.LatLng(<%= nearest.latitude %>, <%= nearest.longitude %>) 
+  <% end %>
+
   var marker = new google.maps.Marker({
     position: pos,
     map: map
   });
+  for (i = 0; i < pos_array.length; i++) { 
+    var marker = new google.maps.Marker({
+      position: pos_array[i],
+      map: map
+    });
+    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+
+    google.maps.event.addListener(marker, "click", function (event) {
+      $("#from").val(this.position);
+      
+      var latitude = this.position.lat();
+      var longitude = this.position.lng();
+      
+      this.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow-dot.png');
+    });
+  }
+  
+
   map.setCenter(pos);
   map.setZoom(18);
 }
