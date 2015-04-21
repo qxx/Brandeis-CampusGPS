@@ -44,7 +44,47 @@ module EntranceSeeds
 ###################### End  ###########################################
 
 ###################### Wan add entrance below here ####################
+    {
+      building_id: EntranceSeeds.b('Library').id,
+      location_id: EntranceSeeds.l('Library_e1').id,
+      photo:'entrances/Library_e1.jpg'
+    },
 
+    {
+      building_id: EntranceSeeds.b('Rabb').id,
+      location_id: EntranceSeeds.l('Rabb_e1').id,
+      photo:'entrances/Rabb_e1.jpg'
+    },
+
+    {
+      building_id: EntranceSeeds.b('Olin-Sang').id,
+      location_id: EntranceSeeds.l('Olin-Sang_e1').id,
+      photo:'entrances/Olin-Sang_e1.jpg'
+    },
+
+    {
+      building_id: EntranceSeeds.b('Shiffman').id,
+      location_id: EntranceSeeds.l('Shiffman_e1').id,
+      photo:'entrances/Shiffman_e1.jpg'
+    },
+
+    {
+      building_id: EntranceSeeds.b('Golding').id,
+      location_id: EntranceSeeds.l('Golding_e1').id,
+      photo:'entrances/Golding_e1.jpg'
+    },
+
+    {
+      building_id: EntranceSeeds.b('Lown').id,
+      location_id: EntranceSeeds.l('Lown_e1').id,
+      photo:'entrances/Lown_e1.jpg'
+    },
+
+    {
+      building_id: EntranceSeeds.b('Kutz').id,
+      location_id: EntranceSeeds.l('Kutz_e1').id,
+      photo:'entrances/Kutz_e1.jpg'
+    },
 ###################### End  ###########################################
 
 ###################### Jing add entrance below here ###################
