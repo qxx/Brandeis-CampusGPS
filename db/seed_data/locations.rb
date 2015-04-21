@@ -57,6 +57,61 @@ LOCATIONS = [
 },
 
 {
+  code_name: 'FellowsGarden_k1',
+  latitude: 42.365913,
+  longitude: -71.259108,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'FellowsGarden_k2',
+  latitude: 42.366166,
+  longitude: -71.259091,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'FellowsGarden_k3',
+  latitude: 42.366702,
+  longitude: -71.259497,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_e1',
+  latitude: 42.365886,
+  longitude: -71.259818,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'SCC_k1',
+  latitude: 42.366161,
+  longitude: -71.259982,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_k2',
+  latitude: 42.365797,
+  longitude: -71.259547,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'SCC_k3',
+  latitude: 42.365935,
+  longitude: -71.259767,
+  loc_type: 'keypoint'
+},
+
+
+###################### Ted add location below here ####################
+
+###################### End  ###########################################
+
+###################### Wan add location below here ####################
+{
   code_name: 'Edison_e1',
   latitude: 42.366215,
   longitude: -71.257853,
@@ -113,27 +168,6 @@ LOCATIONS = [
 },
 
 {
-  code_name: 'FellowsGarden_k1',
-  latitude: 42.365913,
-  longitude: -71.259108,
-  loc_type: 'keypoint'
-},
-
-{
-  code_name: 'FellowsGarden_k2',
-  latitude: 42.366166,
-  longitude: -71.259091,
-  loc_type: 'keypoint'
-},
-
-{
-  code_name: 'FellowsGarden_k3',
-  latitude: 42.366702,
-  longitude: -71.259497,
-  loc_type: 'keypoint'
-},
-
-{
   code_name: 'Library_e1',
   latitude: 42.367939,
   longitude: -71.258273 ,
@@ -169,37 +203,9 @@ LOCATIONS = [
 },
 
 {
-  code_name: 'SCC_e1',
-  latitude: 42.365886,
-  longitude: -71.259818,
-  loc_type: 'entrance'
-},
-
-{
-  code_name: 'SCC_k1',
-  latitude: 42.366161,
-  longitude: -71.259982,
-  loc_type: 'keypoint'
-},
-
-{
-  code_name: 'SCC_k2',
-  latitude: 42.365797,
-  longitude: -71.259547,
-  loc_type: 'keypoint'
-},
-
-{
-  code_name: 'SCC_k3',
-  latitude: 42.365935,
-  longitude: -71.259767,
-  loc_type: 'keypoint'
-},
-
-{
   code_name: 'Rabb_e1',
-  latitude: 42.369174,
-  longitude: -71.257283,
+  latitude: 42.369108,
+  longitude: -71.257294,
   loc_type: 'entrance'
 },
 
@@ -214,6 +220,13 @@ LOCATIONS = [
   code_name: 'Rabb_k2',
   latitude: 42.369069,
   longitude: -71.257222,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Rabb_k3',
+  latitude: 42.369369,
+  longitude: -71.257259,
   loc_type: 'keypoint'
 },
 
@@ -246,17 +259,53 @@ LOCATIONS = [
 },
 
 {
+  code_name: 'Olin-Sang_e1',
+  latitude: 42.369461,
+  longitude: -71.257387,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'Shiffman_e1',
+  latitude: 42.369657, 
+  longitude: -71.257098,
+  loc_type: 'entrance'
+},
+
+{
+  code_name: 'Shiffman_k1',
+  latitude: 42.369575, 
+  longitude: -71.257270,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Lown_e1',
+  latitude: 42.370079, 
+  longitude: -71.257324,
+  loc_type: 'entrance'
+},
+
+{
   code_name: 'Golding_e1',
   latitude: 42.370020, 
   longitude: -71.257716,
   loc_type: 'entrance'
+},
+
+{
+  code_name: 'Golding_k1',
+  latitude: 42.369817, 
+  longitude: -71.257635,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'Golding_k2',
+  latitude: 42.369888, 
+  longitude: -71.257533,
+  loc_type: 'keypoint'
 }
-###################### Ted add location below here ####################
-
-###################### End  ###########################################
-
-###################### Wan add location below here ####################
-
 ###################### End  ###########################################
 
 ###################### Jing add location below here ###################
