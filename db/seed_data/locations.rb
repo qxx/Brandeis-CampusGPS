@@ -313,7 +313,98 @@ LOCATIONS = [
 ###################### End  ###########################################
 
 ###################### Xi add location below here #####################
+{
+  code_name: 'SCC_e2',
+  latitude: 42.365703,
+  longitude: -71.259938,
+  loc_type: 'entrance'
+},
 
+{
+  code_name: 'SCC_e3',
+  latitude: 42.365570,
+  longitude: -71.260160,
+  loc_type: 'entrance'
+},
+{
+  code_name: 'SCC_k4',
+  latitude: 42.365625,
+  longitude: -71.259762,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k5',
+  latitude: 42.365501,
+  longitude: -71.259873,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k6',
+  latitude: 42.365332,
+  longitude: -71.260075,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k7',
+  latitude: 42.365256,
+  longitude: -71.260295,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k8',
+  latitude: 42.364860,
+  longitude: -71.260703,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k9',
+  latitude: 42.365428,
+  longitude: -71.260770,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k10',
+  latitude: 42.365101,
+  longitude: -71.261341,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_k11',
+  latitude: 42.366090,
+  longitude: -71.260341,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SCC_i1',
+  latitude: 42.365748,
+  longitude: -71.260027,
+  loc_type: 'indoor'
+},
+{
+  code_name: 'SCC_k12',
+  latitude: 42.365839,
+  longitude: -71.259635,
+  loc_type: 'keypoint'
+},
+
+{
+  code_name: 'TheaterLot_p1',
+  latitude: 42.363934,
+  longitude: -71.262454,
+  loc_type: 'parking_lot'
+},
+{
+  code_name: 'TheaterLot_k1',
+  latitude: 42.364019,
+  longitude: -71.261467,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Admissions_k1',
+  latitude: '42.364743',
+  longitude: '-71.260767',
+  loc_type: 'keypoint'
+}
 ###################### End  ###########################################
 ]
 end

@@ -1,9 +1,8 @@
-
+ 
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
   include OutdoorHelper
-
 
 
   def index
@@ -26,8 +25,10 @@ class OutdoorController < ApplicationController
   def routing
     ## Get buildings from params
     if params[:from] && params[:to]
-      @building_from = Building.find_by name:(params[:from])
-      @building_to = Building.find_by name:(params[:to])
+      @building_from = Building.find_by(name: params[:from]) 
+      @building_from = ParkingLot.find_by(name: params[:from]) if @building_from.nil?
+      @building_to = Building.find_by(name: params[:to])
+      @building_to = ParkingLot.find_by name:(params[:to]) if @building_to.nil?
     end
 
     if @building_from.nil? || @building_to.nil?
@@ -39,6 +40,9 @@ class OutdoorController < ApplicationController
         check_graph
         location_start, location_end = get_location_start_and_end(@@astar, @building_from, @building_to)
         @locations = @@astar.astar(location_start, location_end)
+        if @locations.nil?
+          redirect_to outdoor_url
+        end
         @paths = locations_to_paths(@locations)
     end
     
@@ -49,7 +53,7 @@ class OutdoorController < ApplicationController
     @building_names = auto_complete(params)
 
     ## Show link to indoor
-    if @building_to && @building_to.code_name == 'Volen'
+    if @building_to.class == Building && @building_to.code_name == 'Volen'
       @has_floorplan = true
     end
   end # End of Action

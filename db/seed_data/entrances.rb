@@ -92,6 +92,14 @@ module EntranceSeeds
 ###################### End  ###########################################
 
 ###################### Xi add entrance below here #####################
+    {
+      building_id: EntranceSeeds.b('SSC').id,
+      location_id: EntranceSeeds.l('SSC_e2').id
+    },
+    {
+      building_id: EntranceSeeds.b('SCC').id,
+      location_id: EntranceSeeds.l('SCC_e3').id
+    }
 
 ###################### End  ###########################################
   ]

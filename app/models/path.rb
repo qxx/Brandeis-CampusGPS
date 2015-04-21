@@ -6,11 +6,12 @@ class Path < ActiveRecord::Base
   has_many :route_constructors
   has_many :routes, through: :route_constructors
 
-  def start_loc
-    Building.find(self.start_location_id)
+  def start_location
+    Location.find(self.start_location_id)
   end
 
-  def end_loc
-    Building.find(self.end_location_id)
+  def end_location
+    Location.find(self.end_location_id)
   end
+
 end

@@ -32,6 +32,16 @@
   left:0px;
 }
 
+#map {
+	position:fixed;
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:5px;
+	left:0px;
+	z-index: -1;
+}
+
 .img-infowindow {
 	width: 240px;
 	height: auto;
@@ -85,7 +95,7 @@
 
 .ui-front{
 	padding-left: 0px;
-
+	width: 15vw;
 }
 
 .ui-front li:hover{
@@ -107,7 +117,6 @@
 	border-top: none;
 
 	padding: .2em;
-	width: 17.5%;
 	background-color: #3b8cd6;
 	list-style: none;
 	color: #fff;
@@ -124,7 +133,6 @@
 	border-bottom-left-radius: .55em ;
 
 	padding: .2em;
-	width: 17.5%;
 	background-color: #3b8cd6;
 	list-style: none;
 	color: #fff;
