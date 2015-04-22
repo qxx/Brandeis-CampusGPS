@@ -1,3 +1,13 @@
 // Place all the styles related to the Outdoor controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.offsetleft {
+	position: absolute;
+	left: 80px;
+}
+
+.setbackground {
+	background: rgba(235, 235, 235, 0.9);
+}
+
+.ui-helper-hidden-accessible { display:none; }

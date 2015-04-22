@@ -1,13 +1,13 @@
-
+ 
 
 class OutdoorController < ApplicationController
   skip_before_filter :authorize
   include OutdoorHelper
 
 
-
   def index
     @buildings = Building.order(:name)
+    @nearest_locations = Location.all
 
     # Google Map
     @users = [Building.first]
@@ -24,24 +24,42 @@ class OutdoorController < ApplicationController
 
 
   def routing
-    ## Get buildings from params
-    if params[:from] && params[:to]
-      @building_from = Building.find_by name:(params[:from])
-      @building_to = Building.find_by name:(params[:to])
+    ## Get locations from params
+    # .to_s == "" is to test nil or empty
+    if params[:from].to_s != "" && params[:to].to_s != "" && params[:from] != params[:to]
+      if params[:from] .start_with?('(') 
+        @location_pickup = get_location_pickup(params[:from])
+      else
+        @building_from = find_building_or_parking_lot(params[:from])
+      end      
+      @building_to = find_building_or_parking_lot(params[:to]) 
+    else
+      redirect_to outdoor_url
+      return
     end
 
-    if @building_from.nil? || @building_to.nil?
+    # get the start and end location for the algorithm
+    check_graph
+
+    begin
+      locations_start = get_locations_start_or_end(@location_pickup, @building_from)
+      locations_end = get_locations_start_or_end(@building_to)
+      location_start, location_end = get_location_start_and_end(@@astar, locations_start, locations_end)
+    rescue RuntimeError => e
       redirect_to outdoor_url
-    end
+      return
+    end  
 
     ## run algorithm
-    if @building_from && @building_to && @building_from != @building_to
-        check_graph
-        location_start, location_end = get_location_start_and_end(@@astar, @building_from, @building_to)
-        @locations = @@astar.astar(location_start, location_end)
-        @paths = locations_to_paths(@locations)
+    @locations = @@astar.astar(location_start, location_end)
+
+    if @locations.nil?
+      redirect_to outdoor_url
+      return
     end
-    
+
+    @paths = locations_to_paths(@locations)
+        
     ## Google map
     @hash = gmap_build_markers(@locations, @paths)
 
@@ -49,7 +67,7 @@ class OutdoorController < ApplicationController
     @building_names = auto_complete(params)
 
     ## Show link to indoor
-    if @building_to && @building_to.code_name == 'Volen'
+    if @building_to.class == Building && @building_to.code_name == 'Volen'
       @has_floorplan = true
     end
   end # End of Action

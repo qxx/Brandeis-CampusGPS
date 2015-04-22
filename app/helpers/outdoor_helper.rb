@@ -11,7 +11,7 @@ module OutdoorHelper
       neighbor_locations[start_loc] << end_loc
     end
     
-    require_relative './../../lib/astar.rb'  
+    require "#{Rails.root}/lib/astar.rb"  
     astar = Astar.new(neighbor_locations)
   end
 
@@ -19,20 +19,59 @@ module OutdoorHelper
     graph.distance(location_start, location_end)
   end
 
-  def get_location_start_and_end(graph, building_from, building_to)
-    location_start = building_from.loc_id.first
-    location_end = building_to.loc_id.first
-    shortest_distance = graph.distance(location_start, location_end)
+  def get_location_pickup(params)
+    pickup = params.split(", ");
     
-    building_from.loc_id.each do |entrance_from|
-      building_to.loc_id.each do |entrance_to|
+    lat_pickup = pickup[0];
+    lat_pickup[0] = '';
+
+    lng_pickup = pickup[1];
+    if lng_pickup[-9].to_i >= 5 
+      digit = lng_pickup[-10].to_i
+      digit += 1
+      lng_pickup[-10] = digit.to_s
+    end
+    lng_pickup[-9..-1] = '';
+    location_pickup = Location.find_by!(latitude: lat_pickup, longitude: lng_pickup)
+  end
+
+  def find_building_or_parking_lot(name)
+    building = Building.find_by(name: name)
+    building ||= ParkingLot.find_by(name: name)
+    buidling ||= Building.find_by(code_name: name)
+    return building
+  end
+
+  def get_locations_start_or_end(*objects)
+    locations = objects.compact
+    if locations.size > 0
+      return locations[0].to_locations
+    else
+      raise "No location found"
+    end
+  end
+
+  def get_location_start_and_end(graph, locations_start, locations_end)
+    location_start = locations_start[0]
+    location_end = locations_end[0]
+
+    shortest_distance = graph.distance(location_start, location_end)
+
+    locations_start.each do |entrance_from|
+      locations_end.each do |entrance_to|
         if graph.distance(entrance_from, entrance_to) < shortest_distance
           location_start = entrance_from
           location_end = entrance_to
+          shortest_distance = graph.distance(entrance_from, entrance_to)
         end
       end
     end
-    return location_start, location_end
+
+    if shortest_distance < 1.0
+      raise "Same start and end locations error"
+    else
+      return location_start, location_end
+    end
   end
 
   def locations_to_paths(locations)
@@ -51,39 +90,44 @@ module OutdoorHelper
     hash = Gmaps4rails.build_markers(locations_shown) do |location_shown, marker|
       marker.lat location_shown.latitude
       marker.lng location_shown.longitude
-      if location_shown.loc_type == 'entrance'
-        building = Building.find(Entrance.find_by(location_id:location_shown.id).building_id)
-        marker.infowindow build_infostring(building)
-        marker.title building.name
+
+      path = paths_shown.find {|p| p.start_location_id == location_shown.id}
+      if path.nil?
+        marker.infowindow build_infostring(location_shown) 
       else
-        path = paths_shown.find {|p| p.start_location_id == location_shown.id}
         marker.infowindow build_infostring(path)
       end
     end
   end
 
   def build_infostring(object)
-    if object.nil?
-      str = ""
-    else
-      str = "<img src=\"/assets/#{object.photo}\" class=\"img-infowindow\">"
+    str = ""
+    return str if object.nil?
+    if object.class == Path || object.class == ParkingLot || object.class ==Building
+      unless object.photo.nil?
+        # I know it's weird to use a image_tag helper to build a string outside the controller
+        # then pass the string to the controller so that it can be used by javascript
+        # and finally show on the map which is in the view.
+        str += ActionController::Base.helpers.image_tag(object.photo, class: "img-infowindow")
+      end
     end
-    return str + "<p>#{object.description}</p>"
+    if object.class == ParkingLot || object.class == Building
+      str +=  "<p>#{object.name}</p>"
+    end
+    if object.class == Building || object.class == Path
+      str += "<p>#{object.description}</p>"
+    end
+    return str
   end
 
   def auto_complete(params)
-    # If the autocomplete is used, it will send a parameter 'term', so we catch that here.  :term does
-    # not have to be explicitly stated in the view, autocomplete automatically calls it :term.
-    if params[:term]
-      # Then we limit the number of records assigned to @building, by using the term value as a filter.
-      building = Building.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
-    else
-      building = Building.order(:name)
-    end
     building_names = []
-    Building.all.select(:name, :code_name).each do |building|
-      building_names << { label: "#{building.name}", value: "#{building.name}"}
-      building_names << { label: "#{building.code_name}", value: "#{building.name}"}
+    Nickname.all.select(:name, :building_id).each do |building|
+      building_names << { label: "#{building.name}", value: "#{(Building.find(building.building_id)).name}"}
+      #building_names << { label: "#{building.code_name}", value: "#{building.name}"}
+    end
+    ParkingLot.all.select(:name).each do |parking_lot|
+      building_names << { label: "#{parking_lot.name}", value: "#{parking_lot.name}"}
     end
     building_names.to_json
   end
