@@ -24,49 +24,42 @@ class OutdoorController < ApplicationController
 
 
   def routing
-    ## Get buildings from params
-    
-    if params[:from] && params[:to]
+    ## Get locations from params
+    # .to_s == "" is to test nil or empty
+    if params[:from].to_s != "" && params[:to].to_s != "" && params[:from] != params[:to]
       if params[:from] .start_with?('(') 
-        pickup = params[:from].split(", ");
-        @lat_pickup = pickup[0];
-        @lat_pickup[0] = '';
-        @lng_pickup = pickup[1];
-        if @lng_pickup[-9].to_i >= 5 
-          digit = @lng_pickup[-10].to_i
-          digit += 1
-          @lng_pickup[-10] = digit.to_s
-        end
-        @lng_pickup[-9..-1] = '';
-        @location_pickup = Location.find_by(latitude: @lat_pickup, longitude: @lng_pickup)
-      end
-      @building_from = Building.find_by(name: params[:from]) 
-      @building_from = ParkingLot.find_by(name: params[:from]) if @building_from.nil?
-      @building_to = Building.find_by(name: params[:to])
-      @building_to = ParkingLot.find_by name:(params[:to]) if @building_to.nil?
+        @location_pickup = get_location_pickup(params[:from])
+      else
+        @building_from = find_building_or_parking_lot(params[:from])
+      end      
+      @building_to = find_building_or_parking_lot(params[:to]) 
+    else
+      redirect_to outdoor_url
+      return
     end
 
-    if @building_from.nil? && @location_pickup.nil? || @building_to.nil?
+    # get the start and end location for the algorithm
+    check_graph
+
+    begin
+      locations_start = get_locations_start_or_end(@location_pickup, @building_from)
+      locations_end = get_locations_start_or_end(@building_to)
+      location_start, location_end = get_location_start_and_end(@@astar, locations_start, locations_end)
+    rescue RuntimeError => e
       redirect_to outdoor_url
-    end
+      return
+    end  
 
     ## run algorithm
-    if (@building_from || @location_pickup) && @building_to && @building_from != @building_to
-        check_graph
-        @locations_end = @building_to.to_locations
-        if @location_pickup
-          @locations_start = [ @location_pickup ]
-        else
-          @locations_start = @building_from.to_locations 
-        end
-        location_start, location_end = get_location_start_and_end(@@astar, @locations_start, @locations_end)  
-        @locations = @@astar.astar(location_start, location_end)       
-        if @locations.nil?
-          redirect_to outdoor_url
-        end
-        @paths = locations_to_paths(@locations)
+    @locations = @@astar.astar(location_start, location_end)
+
+    if @locations.nil?
+      redirect_to outdoor_url
+      return
     end
-    
+
+    @paths = locations_to_paths(@locations)
+        
     ## Google map
     @hash = gmap_build_markers(@locations, @paths)
 

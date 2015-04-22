@@ -19,10 +19,39 @@ module OutdoorHelper
     graph.distance(location_start, location_end)
   end
 
-  def get_location_start_and_end(graph, locations_start, locations_end)
-    #locations_start = building_from.to_locations
-    #locations_end = building_to.to_locations
+  def get_location_pickup(params)
+    pickup = params.split(", ");
+    
+    lat_pickup = pickup[0];
+    lat_pickup[0] = '';
 
+    lng_pickup = pickup[1];
+    if lng_pickup[-9].to_i >= 5 
+      digit = lng_pickup[-10].to_i
+      digit += 1
+      lng_pickup[-10] = digit.to_s
+    end
+    lng_pickup[-9..-1] = '';
+    location_pickup = Location.find_by!(latitude: lat_pickup, longitude: lng_pickup)
+  end
+
+  def find_building_or_parking_lot(name)
+    building = Building.find_by(name: name)
+    building ||= ParkingLot.find_by(name: name)
+    buidling ||= Building.find_by(code_name: name)
+    return building
+  end
+
+  def get_locations_start_or_end(*objects)
+    locations = objects.compact
+    if locations.size > 0
+      return locations[0].to_locations
+    else
+      raise "No location found"
+    end
+  end
+
+  def get_location_start_and_end(graph, locations_start, locations_end)
     location_start = locations_start[0]
     location_end = locations_end[0]
 
@@ -33,11 +62,16 @@ module OutdoorHelper
         if graph.distance(entrance_from, entrance_to) < shortest_distance
           location_start = entrance_from
           location_end = entrance_to
+          shortest_distance = graph.distance(entrance_from, entrance_to)
         end
       end
     end
 
-    return location_start, location_end
+    if shortest_distance < 1.0
+      raise "Same start and end locations error"
+    else
+      return location_start, location_end
+    end
   end
 
   def locations_to_paths(locations)

@@ -55,12 +55,15 @@ $(function() {
         <!-- from -->
         <div class="row setbackground"> 
             <span class="glyphicon glyphicon-play"></span>
-            
-            <% if @building_from.class == Building %>
-            <%= @building_from.name %>
-            <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
-              Enter <%=@building_from.code_name%>
-            </button>
+            <% if @building_from %>
+              <%= @building_from.name %>
+              <% if @building_from.class == Building %>
+              <button onclick="EnterBuildingFunction('<%= @building_from.code_name %>')" type="button"> 
+                Enter <%=@building_from.code_name%>
+              </button>
+              <% end %>
+            <% else %>
+              <%= "#{params[:from]}, near #{@location_pickup.code_name.split('_')[0].titleize}" %>
             <% end %>
         </div>
 
@@ -127,7 +130,7 @@ $(function() {
 
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
-      <% if (@building_from || @location_pickup) && @building_to && @building_from != @building_to %>
+      <% if @locations %>
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       <% end %>
