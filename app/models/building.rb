@@ -16,6 +16,10 @@ class Building < ActiveRecord::Base
     loc_id
   end
 
+  def has_floorplan?
+    return self.code_name == "Volen" || self.code_name == "SSC"
+  end
+
   #def latitude
     #Location.find(self.loc_id).latitude
   #end

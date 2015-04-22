@@ -7,7 +7,7 @@
         <%= label_tag(:q, "Floorplan:") %>
           <%= select_tag(:code_name, options_for_select([['First Floor','Volen_1'], ['Second Floor', 'Volen_2'],
                                                        ['Third Floor','Volen_3'], ['Fourth Floor','Volen_4'],
-                                                       ['Lower Level','Volen_5'], ['Roof Level','Volen_6']])) %>
+                                                       ['Lower Level','Volen_Lower'], ['Roof Level','Volen_Roof']])) %>
       </div>
 
       <%= label_tag(:q, "Room Tag:") %>
@@ -18,8 +18,10 @@
   <% end %>
 
 <div class="image-container">
-<%= image_tag(@floorplan, class: 'floorplan') %>
-<div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;"></div>
+  <%= image_tag(@floorplan, class: 'floorplan') %>
+  <div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;">
+    <span class="glyphicon glyphicon-map-marker red"></span>
+  </div>
 </div>
 
 <div style="bottom: 0px">
