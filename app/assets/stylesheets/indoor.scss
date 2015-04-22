@@ -14,9 +14,10 @@
 }
 
 #overlay {
-//    position: relative;
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: mediumvioletred;
+    font-size: 32px;
+}
+
+.red {
+    color: red;
 }
