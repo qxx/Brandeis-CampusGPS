@@ -1,34 +1,25 @@
-<script>
-function changePic(val, name){
-	$(".image-container").html("<img src='/assets/floorplans/"+name+"_"+val+"-5f9dc8f130f2ac0b1c812f04c51edbbc.jpg' class='floorplan'>");
-	$(".current-floor").html(val);
-}
-</script>
+<div class="container">
+<p id="notice"><%= notice %></p>
 
-<div style="height: 100%; margin: 0px; padding: 0px;">
+<%= form_tag("/indoor/index/Volen", method: "get") do %>
 
-<h1>You are currently viewing <%= @floorplan.split("_").first[11..-1] %> Level: <span class="current-floor"><%= @floorplan.split("_").last[0..-5] %></span></h1>
+      <div class="form-group">
+        <%= label_tag(:q, "Floorplan:") %>
+          <%= select_tag(:code_name, options_for_select([['First Floor','Volen_1'], ['Second Floor', 'Volen_2'],
+                                                       ['Third Floor','Volen_3'], ['Fourth Floor','Volen_4'],
+                                                       ['Lower Level','Volen_5'], ['Roof Level','Volen_6']])) %>
+      </div>
 
+      <%= label_tag(:q, "Room Tag:") %>
+      <%= text_field_tag(:room_tag) %>
 
+      <%= submit_tag("Search") %>
 
-<div class="btn-toolbar">
-	<div class="btn-group">
-<% @floors.each do |floor| %>
-	<% plan_name = floor.floorplan.split('_').last[0..-5] %>
-	<% building_name = floor.floorplan.split('_').first[11..-1] %>
-	<button class="btn btn-primary" onclick="changePic(
-		'<%= plan_name %>', '<%= building_name %>')" type="button">
-		<%= plan_name %>
-	</button>
-<% end %>
-	</div>
-</div>
-
-
+  <% end %>
 
 <div class="image-container">
 <%= image_tag(@floorplan, class: 'floorplan') %>
-<div id="overlay" style="left: <%= @overlay_x %>px; top: <%= @overlay_y %>px;"></div>
+<div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;"></div>
 </div>
 
 <div style="bottom: 0px">
