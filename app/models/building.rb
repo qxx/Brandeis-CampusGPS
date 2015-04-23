@@ -1,5 +1,6 @@
 class Building < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
+  has_many :rooms
   has_many :floors
   has_many :entrances
   has_many :nicknames

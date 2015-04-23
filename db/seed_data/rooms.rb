@@ -38,7 +38,7 @@
     },
     {
       code_name: 'Volen_104',
-      name: '104',
+      name: 'Vertica',
       doortag: '104',
       floorplan_x: 654,
       floorplan_y: 1366,

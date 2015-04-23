@@ -6,7 +6,8 @@ class IndoorController < ApplicationController
     @floors = @building.floors    
 
     if params[:room].to_s != ""
-      room = Room.find_by(name: params[:room])
+      room = @building.rooms.find_by(name: params[:room])
+      room = @building.rooms.find_by(doortag: params[:room]) if room.nil?
       @floorplan = room.floor.floorplan
 
       # calculate overlay coordinates in percentage, shift by (-2%, -6%) to center the marker
