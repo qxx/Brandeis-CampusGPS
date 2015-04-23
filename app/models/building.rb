@@ -1,8 +1,7 @@
 class Building < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
+  has_many :floors
   has_many :entrances
-  has_many :path_buildings
-  has_many :paths, through: :path_buildings
   has_many :nicknames
 
   # This method returns the location id of the building's first entrance

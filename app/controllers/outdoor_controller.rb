@@ -66,6 +66,9 @@ class OutdoorController < ApplicationController
     ## auto complete
     @building_names = auto_complete(params)
 
+    ##
+    @directed_from = "#{params[:from]},,#{params[:to]}"
+
   end # End of Action
 
   private

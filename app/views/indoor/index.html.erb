@@ -1,31 +1,51 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<%= form_tag("/indoor/index/Volen", method: "get") do %>
-
-      <div class="form-group">
-        <%= label_tag(:q, "Floorplan:") %>
-          <%= select_tag(:code_name, options_for_select([['First Floor','Volen_1'], ['Second Floor', 'Volen_2'],
-                                                       ['Third Floor','Volen_3'], ['Fourth Floor','Volen_4'],
-                                                       ['Lower Level','Volen_Lower'], ['Roof Level','Volen_Roof']])) %>
-      </div>
-
-      <%= label_tag(:q, "Room Tag:") %>
-      <%= text_field_tag(:room_tag) %>
-
-      <%= submit_tag("Search") %>
-
-  <% end %>
-
-<div class="image-container">
-  <%= image_tag(@floorplan, class: 'floorplan') %>
-  <div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;">
-    <span class="glyphicon glyphicon-map-marker red"></span>
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <% @floors.each do |floor| %>
+    <% floor_id = floor.id %>
+    <button class="btn btn-primary" onclick="changePic('<%= floor.floorplan %>')" type="button">
+      <%= floor.level %>
+    </button>
+    <% end %>
   </div>
 </div>
 
-<div style="bottom: 0px">
-	<%= link_to "Back to Directions", "javascript:history.go(-1);" %>
+<%= form_tag(indoor_index_path, method: "get") do %>
+  <%= hidden_field_tag(:building, @building.code_name) %>
+  <%= label_tag(:q, "Room:") %>
+  <%= text_field_tag(:room) %>
+  <%= hidden_field_tag(:directed_from, @directed_from) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div class="image-container">
+  <%= image_tag(@floorplan, class: 'floorplan') %>
+  <% if @overlay_x && @overlay_y %>
+  <div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;">
+    <span class="glyphicon glyphicon-map-marker red"></span>
+  </div>
+  <% end %>
 </div>
+
+<!-- back to outdoor -->
+<div>
+	<%= link_to "Back to Directions", outdoor_routing_path(from: @from, to: @to) %>
+</div>
+
+<script>
+  <% images = @floors.map{|floor| floor.floorplan} %>
+  var all_image_paths = new Array();
+
+  <% images.each do |img| %>
+  all_image_paths["<%= img %>"] = "<%= image_path(img) %>";
+  <% end %>
+
+  function changePic(image){
+    $(".image-container .floorplan").attr("src", all_image_paths[image]);
+    $(".image-container #overlay").remove();
+  }
+</script>
 
 </div>

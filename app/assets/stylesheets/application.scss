@@ -14,7 +14,10 @@
  *= require_self
  */
 
-
+.lower-left {
+	position: absolute;
+	bottom: 20px;
+}
 
 .even {
 	background-color: #eee;
