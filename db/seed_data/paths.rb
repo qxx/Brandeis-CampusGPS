@@ -499,7 +499,7 @@ PATHS = [
   photo: 'paths/SCC_k6_SCC_k7.jpg'
 },
 {
-  description: "Continue climbing up",
+  description: "Continue walking up the street",
   start_location_id: PathSeeds.l('SCC_k7').id,
   end_location_id: PathSeeds.l('SCC_k6').id,
   photo: 'paths/SCC_k7_SCC_k6.jpg'
@@ -586,6 +586,255 @@ PATHS = [
   description: 'Walk towards the blue building',
   end_location_id: PathSeeds.l('SCC_k2').id,
   start_location_id: PathSeeds.l('FellowsGarden_k1').id,
+  photo: nil
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  description: 'From stop sign, walk up the street',
+  end_location_id: PathSeeds.l('Rosenstiel_k2').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k1').id,
+  photo: nil
+},
+{
+  description: 'Walk down the street to stop sign',
+  end_location_id: PathSeeds.l('Rosenstiel_k1').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k2').id,
+  photo: nil
+},
+{
+  description: 'Walk upwards towards the castle which will be on your right',
+  end_location_id: PathSeeds.l('Rosenstiel_k3').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k2').id,
+  photo: nil
+},
+{
+  description: 'Walk down away from the castle',
+  end_location_id: PathSeeds.l('Rosenstiel_k2').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k3').id,
+  photo: nil
+},
+{
+  description: 'Walk along the parking lot on the right to stop sign',
+  end_location_id: PathSeeds.l('Rosenstiel_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k1').id,
+  photo: nil
+},
+{
+  description: 'Take the right road with no guard rail, alongside the parking lot',
+  end_location_id: PathSeeds.l('Rubenstein_k1').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k1').id,
+  photo: nil
+},
+{
+  description: 'Turn right and take loop road left alongside the parking lot',
+  end_location_id: PathSeeds.l('Rosenstiel_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k1').id,
+  photo: nil
+},
+{
+  description: 'Go right and take the immediate left to the middle road with no guard rail',
+  end_location_id: PathSeeds.l('Rubenstein_k2').id,
+  start_location_id: PathSeeds.l('Rubenstein_k1').id,
+  photo: nil
+},
+{
+  description: 'Turn right and take loop road left alongside the parking lot',
+  end_location_id: PathSeeds.l('Rubenstein_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k2').id,
+  photo: nil
+},
+{
+  description: 'Take the road farthest to the right with the guard rail',
+  end_location_id: PathSeeds.l('Rubenstein_k3').id,
+  start_location_id: PathSeeds.l('Rubenstein_k1').id,
+  photo: nil
+},
+{
+  description: 'Turn right and take loop road left alongside the parking lot',
+  end_location_id: PathSeeds.l('Rubenstein_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k3').id,
+  photo: nil
+},
+{
+  description: 'Follow the road down to the tall smokestack to your right',
+  end_location_id: PathSeeds.l('Rubenstein_k4').id,
+  start_location_id: PathSeeds.l('Rubenstein_k3').id,
+  photo: nil
+},
+{
+  description: 'Continue upwards to the intersection',
+  end_location_id: PathSeeds.l('Rubenstein_k3').id,
+  start_location_id: PathSeeds.l('Rubenstein_k4').id,
+  photo: nil
+},
+{
+  description: 'Continue until the sidewalk ends and take the left road',
+  end_location_id: PathSeeds.l('Rubenstein_k5').id,
+  start_location_id: PathSeeds.l('Rubenstein_k4').id,
+  photo: nil
+},
+{
+  description: 'Follow the road right passed the smokestack on your left',
+  end_location_id: PathSeeds.l('Rubenstein_k4').id,
+  start_location_id: PathSeeds.l('Rubenstein_k5').id,
+  photo: nil
+},
+{
+  description: 'Continue upwards and you will see Pomerantz of East Quad',
+  end_location_id: PathSeeds.l('Rubenstein_k6').id,
+  start_location_id: PathSeeds.l('Rubenstein_k5').id,
+  photo: nil
+},
+{
+  description: 'Walk past the parking lot on the left, but continue right on the road.',
+  end_location_id: PathSeeds.l('Rubenstein_k5').id,
+  start_location_id: PathSeeds.l('Rubenstein_k6').id,
+  photo: nil
+},
+{
+  description: 'Follow the road to North Quad',
+  end_location_id: PathSeeds.l('Rubenstein_k7').id,
+  start_location_id: PathSeeds.l('Rubenstein_k2').id,
+  photo: nil
+},
+{
+  description: 'Pass the stairs on you right and continue toward the intersection',
+  end_location_id: PathSeeds.l('Rubenstein_k2').id,
+  start_location_id: PathSeeds.l('Rubenstein_k7').id,
+  photo: nil
+},
+{
+  description: 'Continue up loop road, castle should be immediately left',
+  end_location_id: PathSeeds.l('Rubenstein_k8').id,
+  start_location_id: PathSeeds.l('Rubenstein_k1').id,
+  photo: nil
+},
+{
+  description: 'Continue down loop road with castle on your right',
+  end_location_id: PathSeeds.l('Rubenstein_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k8').id,
+  photo: nil
+},
+{
+  description: 'Walk down the stairs to Northa Quad',
+  end_location_id: PathSeeds.l('Rubenstein_k7').id,
+  start_location_id: PathSeeds.l('Rubenstein_k8').id,
+  photo: nil
+},
+{
+  description: 'Walk up the stairs to the castle and you will be on loop road',
+  end_location_id: PathSeeds.l('Rubenstein_k8').id,
+  start_location_id: PathSeeds.l('Rubenstein_k7').id,
+  photo: nil
+},
+{
+  description: 'Walk to the left of the buildings to the second set of stairs on your left',
+  end_location_id: PathSeeds.l('Rubenstein_k9').id,
+  start_location_id: PathSeeds.l('Rubenstein_k7').id,
+  photo: nil
+},
+{
+  description: 'Walk to the right of the buildings to the next set of stairs on your right',
+  end_location_id: PathSeeds.l('Rubenstein_k7').id,
+  start_location_id: PathSeeds.l('Rubenstein_k9').id,
+  photo: nil
+},
+{
+  description: 'Continue up loop road until there is another set of stairs on the right',
+  end_location_id: PathSeeds.l('Rubenstein_k10').id,
+  start_location_id: PathSeeds.l('Rubenstein_k8').id,
+  photo: nil
+},
+{
+  description: 'Continue down loop road until there is another set of stairs on the left',
+  end_location_id: PathSeeds.l('Rubenstein_k8').id,
+  start_location_id: PathSeeds.l('Rubenstein_k10').id,
+  photo: nil
+},
+{
+  description: 'Walk up the stairs to the castle and you will be on loop road',
+  end_location_id: PathSeeds.l('Rubenstein_k10').id,
+  start_location_id: PathSeeds.l('Rubenstein_k9').id,
+  photo: nil
+},
+{
+  description: 'Walk down the stairs away from castle and into North Quad',
+  end_location_id: PathSeeds.l('Rubenstein_k9').id,
+  start_location_id: PathSeeds.l('Rubenstein_k10').id,
+  photo: nil
+},
+{
+  description: 'Walk to the bottom of the ramp on the left, Hassenfeld will be on your right',
+  end_location_id: PathSeeds.l('Rubenstein_k11').id,
+  start_location_id: PathSeeds.l('Rubenstein_k9').id,
+  photo: nil
+},
+{
+  description: 'Walk up the ramp and you will be on loop road at an intersection',
+  end_location_id: PathSeeds.l('Rubenstein_k16').id,
+  start_location_id: PathSeeds.l('Rubenstein_k11').id,
+  photo: nil
+},
+{
+  description: 'Continue up loop road until you reach the intersection',
+  end_location_id: PathSeeds.l('Rubenstein_k16').id,
+  start_location_id: PathSeeds.l('Rubenstein_k10').id,
+  photo: nil
+},
+{
+  description: 'Castle should be on your right, walk to the 3-way intersection',
+  end_location_id: PathSeeds.l('Usdan_k1').id,
+  start_location_id: PathSeeds.l('Rosenstiel_k3').id,
+  photo: nil
+},
+{
+  description: 'Take either the left road, or the stairs straight ahead to Usdan',
+  end_location_id: PathSeeds.l('Usdan_k2').id,
+  start_location_id: PathSeeds.l('Usdan_k1').id,
+  photo: nil
+},
+{
+  description: 'Take the left road down to the next intersection with castle on your left',
+  end_location_id: PathSeeds.l('Usdan_k1').id,
+  start_location_id: PathSeeds.l('Rubenstein_k16').id,
+  photo: nil
+},
+{
+  description: 'With the castle on your right, continue up to the next intersection with loop road',
+  end_location_id: PathSeeds.l('Rubenstein_k16').id,
+  start_location_id: PathSeeds.l('Usdan_k1').id,
+  photo: nil
+},
+{
+  description: 'Continue walking with Usdan on your right',
+  end_location_id: PathSeeds.l('Usdan_k3').id,
+  start_location_id: PathSeeds.l('Usdan_k2').id,
+  photo: nil
+},
+{
+  description: 'Walk right passed the statue and under the overhead building bridge to Usdan',
+  end_location_id: PathSeeds.l('Usdan_k4').id,
+  start_location_id: PathSeeds.l('Usdan_k3').id,
+  photo: nil
+},
+{
+  description: 'Walk left passed the statue and under the overhead building bridge to Usdan',
+  end_location_id: PathSeeds.l('Usdan_k4').id,
+  start_location_id: PathSeeds.l('Usdan_k2').id,
   photo: nil
 }
 ###################### End  ###########################################

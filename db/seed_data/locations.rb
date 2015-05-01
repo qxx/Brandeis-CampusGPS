@@ -308,6 +308,256 @@ LOCATIONS = [
 },
 ###################### End  ###########################################
 
+
+{
+  code_name: 'Rosenstiel_k1',
+  latitude: 42.366065,
+  longitude: -71.256331,
+  loc_type: 'keypoint'
+},
+ {
+  code_name: 'Rosenstiel_k2',
+  latitude: 42.366263,
+  longitude: -71.256385,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rosenstiel_k3',
+  latitude: 42.366770,
+  longitude: -71.256020,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rosenstiel_k4',
+  latitude: 42.366785,
+  longitude: -71.256009,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k1',
+  latitude: 42.366592,
+  longitude: -71.255205,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k2',
+  latitude: 42.366509,
+  longitude: -71.255012,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k3',
+  latitude: 42.366438,
+  longitude: -71.254873,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k4',
+  latitude: 42.366957,
+  longitude: -71.254680,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k5',
+  latitude: 42.367199,
+  longitude: -71.254369,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k6',
+  latitude: 42.367615,
+  longitude: -71.254444,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k7',
+  latitude: 42.367278,
+  longitude: -71.255002,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k8',
+  latitude: 42.367195,
+  longitude: -71.255238,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k9',
+  latitude: 42.367662,
+  longitude: -71.255249,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k10',
+  latitude: 42.367634,
+  longitude: -71.255442,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k11',
+  latitude: 42.367836,
+  longitude: -71.255217,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k12',
+  latitude: 42.367895,
+  longitude: -71.254960,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k13',
+  latitude: 42.368038,
+  longitude: -71.255271,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k14',
+  latitude: 42.368113,
+  longitude: -71.255625,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k15',
+  latitude: 42.367998,
+  longitude: -71.255657,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Rubenstein_k16',
+  latitude: 42.368093,
+  longitude: -71.255947,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Usdan_k1',
+  latitude: 42.367368,
+  longitude: -71.256159,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Usdan_k2',
+  latitude: 42.367578,
+  longitude: -71.256685,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Usdan_k3',
+  latitude: 42.367693,
+  longitude: -71.257275,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Usdan_k4',
+  latitude: 42.367903,
+  longitude: -71.256899,
+  loc_type: 'keypoint'
+},
+##########################have not used k5 yet
+{
+  code_name: 'Usdan_k5',
+  latitude: 42.368287,
+  longitude: -71.256760,
+  loc_type: 'keypoint'
+},
+
+
+{
+  code_name: 'Usdan_6',
+  latitude: 42.368434,
+  longitude: -71.256266,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Usdan_7',
+  latitude: 42.368434,
+  longitude: -71.256266,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_1',
+  latitude: 42.365743,
+  longitude: -71.256094,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_2',
+  latitude: 42.365668,
+  longitude: -71.256212,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_3',
+  latitude: 42.365402,
+  longitude: -71.255933,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_4',
+  latitude: 42.365731,
+  longitude: -71.255965,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SStreet_1',
+  latitude: 42.365759,
+  longitude: -71.255193,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'SStreet_2',
+  latitude: 42.366001,
+  longitude: -71.254839,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_5',
+  latitude: 42.366282,
+  longitude: -71.255075,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_6',
+  latitude: 42.366270,
+  longitude: -71.255343,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_7',
+  latitude: 42.366329,
+  longitude: -71.255386,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_8',
+  latitude: 42.366285,
+  longitude: -71.255611,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_9',
+  latitude: 42.366202,
+  longitude: -71.255761,
+  loc_type: 'keypoint'
+},
+{
+  code_name: 'Safety_10',
+  latitude: 42.366055,
+  longitude: -71.255933,
+  loc_type: 'keypoint'
+},
+  #code_name: '',
+  #latitude: ,
+  #longitude: ,
+  #loc_type: ''
+#},
+
+
+
+
+
+
+
 ###################### Jing add location below here ###################
 
 ###################### End  ###########################################
