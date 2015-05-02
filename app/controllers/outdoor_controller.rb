@@ -34,6 +34,7 @@ class OutdoorController < ApplicationController
       end      
       @building_to = find_building_or_parking_lot(params[:to]) 
     else
+      flash[:notice] = "Sorry, we don't know the place you were looking for."
       redirect_to outdoor_url
       return
     end
@@ -46,6 +47,7 @@ class OutdoorController < ApplicationController
       locations_end = get_locations_start_or_end(@building_to)
       location_start, location_end = get_location_start_and_end(@@astar, locations_start, locations_end)
     rescue RuntimeError => e
+      flash[:notice] = "Sorry, we can't find the place you were looking for."
       redirect_to outdoor_url
       return
     end  
@@ -54,6 +56,7 @@ class OutdoorController < ApplicationController
     @locations = @@astar.astar(location_start, location_end)
 
     if @locations.nil?
+      flash[:notice] = "Sorry, we can't find a way."
       redirect_to outdoor_url
       return
     end

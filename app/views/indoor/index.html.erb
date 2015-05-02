@@ -1,5 +1,4 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
 </br>
 <%= label_tag(:q, "Floor:", class: 'pull-left') %>
 <div class="btn-toolbar">
@@ -20,6 +19,8 @@
   <%= hidden_field_tag(:directed_from, @directed_from) %>
   <%= submit_tag("Search") %>
 <% end %>
+
+<p id="notice"><%= flash[:notice] %></p>
 
 <div class="image-container">
   <%= image_tag(@floorplan, class: 'floorplan') %>
