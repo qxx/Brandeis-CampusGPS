@@ -45,14 +45,9 @@ $(function() {
       <%= link_to "Reset" , outdoor_path, class: "btn btn-default"%>
     <% end %>
   </div>
-
-
-
-  <div class="row">&nbsp;</div>
-
-
+</br>
 <div class="btn-group" data-toggle="collapse">
-    <a class="btn collapse-data-btn" data-toggle="collapse" href="#showhide">show/hide directions</a>
+    <a class="btn collapse-data-btn btn-info btn-xs" data-toggle="collapse" href="#showhide">show/hide directions</a>
 </div>
 
   <div id="showhide" class="collapse in">    
@@ -96,6 +91,7 @@ $(function() {
   
   </div>
 </div>
+
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

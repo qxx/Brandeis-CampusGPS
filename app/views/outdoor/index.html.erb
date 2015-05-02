@@ -19,8 +19,6 @@ $(function() {
 });
 </script>
 
-
-
 <!-- map --> 
 <div id="map-canvas"></div>
 <!-- searh box --> 
@@ -36,6 +34,10 @@ $(function() {
   <%= submit_tag "GO", :name => nil, class: "btn btn-primary" %>
   <button class="btn btn-primary" onclick="getCurrentLocation()" type="button">Where am I?</button>
 <% end %>
+
+<div id="seal">
+  <%= image_tag("seal.png", class: "seal-img", onclick: "this.parentNode.style.display = 'none';") %>
+</div>
 
 <!-- Geolocation --> 
 <!-- issue with turbolinks, all google map scripts must be directly put here -->

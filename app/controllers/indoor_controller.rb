@@ -17,8 +17,9 @@ class IndoorController < ApplicationController
       @floorplan = @floors.first.floorplan
     end
     @directed_from = params[:directed_from]
-    @from, @to = @directed_from.split(",,")
-
+    if @directed_from.to_s != ""
+      @from, @to = @directed_from.split(",,")
+    end
   end
 
 

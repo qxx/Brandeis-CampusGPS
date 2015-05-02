@@ -209,7 +209,7 @@
     },
     {
       code_name: 'Volen_124',
-      name: '124',
+      name: 'Antonella DiLillo',
       doortag: '124',
       floorplan_x: 2344,
       floorplan_y: 1020,
@@ -299,7 +299,7 @@
     },
     {
       code_name: 'Volen_135',
-      name: '135',
+      name: 'Pengyu Hong',
       doortag: '135',
       floorplan_x: 1772,
       floorplan_y: 1068,
@@ -308,7 +308,7 @@
     },
     {
       code_name: 'Volen_136',
-      name: '136',
+      name: 'Nianwen Xue',
       doortag: '136',
       floorplan_x: 1674,
       floorplan_y: 1068,
@@ -317,7 +317,7 @@
     },
     {
       code_name: 'Volen_137',
-      name: '137',
+      name: 'Mitch Cherniack',
       doortag: '137',
       floorplan_x: 1564,
       floorplan_y: 1068,
@@ -326,7 +326,7 @@
     },
     {
       code_name: 'Volen_138',
-      name: '138',
+      name: 'Tim Hickey',
       doortag: '138',
       floorplan_x: 1464,
       floorplan_y: 1068,
@@ -335,7 +335,7 @@
     },
     {
       code_name: 'Volen_139',
-      name: '139',
+      name: 'Olga Papaemmanouil',
       doortag: '139',
       floorplan_x: 1348,
       floorplan_y: 1068,
@@ -497,7 +497,7 @@
     },
     {
       code_name: 'Volen_212',
-      name: '212',
+      name: 'Rick Alterman',
       doortag: '212',
       floorplan_x: 1084,
       floorplan_y: 1668,
@@ -505,7 +505,7 @@
       building_id: FloorSeeds.b('Volen').id
     },{
       code_name: 'Volen_213',
-      name: '213',
+      name: 'Jordan Pollack',
       doortag: '213',
       floorplan_x: 1220,
       floorplan_y: 1668,
@@ -820,7 +820,7 @@
     },
     {
       code_name: 'Volen_254',
-      name: '254',
+      name: 'Jim Storer',
       doortag: '254',
       floorplan_x: 1360,
       floorplan_y: 1056,
@@ -847,7 +847,7 @@
     },
     {
       code_name: 'Volen_257',
-      name: '257',
+      name: 'Harry Mairson',
       doortag: '257',
       floorplan_x: 1228,
       floorplan_y: 1056,
@@ -856,7 +856,7 @@
     },
     {
       code_name: 'Volen_258',
-      name: '258',
+      name: 'James Pustejovsky',
       doortag: '258',
       floorplan_x: 1092,
       floorplan_y: 1056,
@@ -874,7 +874,7 @@
     },
     {
       code_name: 'Volen_260',
-      name: '260',
+      name: 'Liuba Shrira',
       doortag: '260',
       floorplan_x: 820,
       floorplan_y: 1056,
