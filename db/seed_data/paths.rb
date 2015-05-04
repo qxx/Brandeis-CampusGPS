@@ -589,8 +589,203 @@ PATHS = [
   photo: nil
 },
 
-
-
+####### added on May 3 ######
+{
+  description: 'Walk up the stairs',
+  start_location_id: PathSeeds.l('Volen_k2').id,
+  end_location_id: PathSeeds.l('Volen_k3').id
+},
+{
+  description: 'Walk down the stairs',
+  start_location_id: PathSeeds.l('Volen_k3').id,
+  end_location_id: PathSeeds.l('Volen_k2').id
+},
+{
+  description: 'Walk up the road',
+  start_location_id: PathSeeds.l('Volen_k3').id,
+  end_location_id: PathSeeds.l('Volen_k4').id
+},
+{
+  description: 'Walk down the road to the stairs',
+  start_location_id: PathSeeds.l('Volen_k4').id,
+  end_location_id: PathSeeds.l('Volen_k3').id
+},
+{
+  description: 'Walk up the road',
+  start_location_id: PathSeeds.l('Volen_k3').id,
+  end_location_id: PathSeeds.l('Volen_k4').id
+},
+{
+  description: 'Walk pass Volen, down the road',
+  start_location_id: PathSeeds.l('Volen_k4').id,
+  end_location_id: PathSeeds.l('Volen_k1').id
+},
+{
+  description: 'Walk up the road, pass Volen which is on your right',
+  start_location_id: PathSeeds.l('Volen_k1').id,
+  end_location_id: PathSeeds.l('Volen_k4').id
+},
+{
+  description: 'Walk to the entrance between the two buildings',
+  start_location_id: PathSeeds.l('Volen_k2').id,
+  end_location_id: PathSeeds.l('Gzang_e1').id
+},
+{
+  description: 'Exit Gzang and walk to the road outside Volen',
+  start_location_id: PathSeeds.l('Gzang_e1').id,
+  end_location_id: PathSeeds.l('Volen_k2').id
+},
+{
+  description: 'Walk across Fellows Garden',
+  start_location_id: PathSeeds.l('FellowsGarden_k3').id,
+  end_location_id: PathSeeds.l('SCC_k1').id
+},
+{
+  description: 'Walk across Fellows Garden',
+  start_location_id: PathSeeds.l('SCC_k1').id,
+  end_location_id: PathSeeds.l('FellowsGarden_k3').id
+},
+{
+  description: 'Take the trail across Fellows Garden',
+  start_location_id: PathSeeds.l('SCC_k12').id,
+  end_location_id: PathSeeds.l('FellowsGarden_k3').id
+},
+{
+  description: 'Take the trail across Fellows Garden',
+  start_location_id: PathSeeds.l('FellowsGarden_k3').id,
+  end_location_id: PathSeeds.l('SCC_k12').id
+},
+{
+  description: 'Walk towards the middle trail in Fellows Garden',
+  start_location_id: PathSeeds.l('SCC_k4').id,
+  end_location_id: PathSeeds.l('SCC_k12').id
+},
+{
+  description: 'Walk pass SCC down the load',
+  start_location_id: PathSeeds.l('SCC_k12').id,
+  end_location_id: PathSeeds.l('SCC_k4').id
+},
+{
+  description: 'Walk to the crossing and take the right',
+  start_location_id: PathSeeds.l('SCC_k4').id,
+  end_location_id: PathSeeds.l('SCC_k2').id
+},
+{
+  description: 'Walk pass SCC down the road',
+  start_location_id: PathSeeds.l('SCC_k2').id,
+  end_location_id: PathSeeds.l('SCC_k4').id
+},
+{
+  description: 'Walk toward SCC a little bit',
+  start_location_id: PathSeeds.l('SCC_k2').id,
+  end_location_id: PathSeeds.l('SCC_k12').id
+},
+{
+  description: 'Walk pass Fellows Garden to the road just ahead',
+  start_location_id: PathSeeds.l('SCC_k12').id,
+  end_location_id: PathSeeds.l('SCC_k2').id
+},
+{
+  description: 'Walk a little to where you can see the trails on your left',
+  start_location_id: PathSeeds.l('SCC_k3').id,
+  end_location_id: PathSeeds.l('SCC_k12').id
+},
+{
+  description: 'Walk a little closer to the entrance of SCC',
+  start_location_id: PathSeeds.l('SCC_k12').id,
+  end_location_id: PathSeeds.l('SCC_k3').id
+},
+{
+  description: 'Walk towards Sherman',
+  start_location_id: PathSeeds.l('SCC_k12').id,
+  end_location_id: PathSeeds.l('SCC_k1').id
+},
+{
+  description: 'Walk toward SCC',
+  start_location_id: PathSeeds.l('SCC_k1').id,
+  end_location_id: PathSeeds.l('SCC_k12').id
+},
+{
+  description: 'Walk down the road',
+  start_location_id: PathSeeds.l('SCC_k4').id,
+  end_location_id: PathSeeds.l('SCC_k5').id
+},
+{
+  description: 'Walk up the road',
+  start_location_id: PathSeeds.l('SCC_k5').id,
+  end_location_id: PathSeeds.l('SCC_k4').id
+},
+{
+  description: 'Walk down the road towards the lawn',
+  start_location_id: PathSeeds.l('SCC_k5').id,
+  end_location_id: PathSeeds.l('SCC_k6').id
+},
+{
+  description: 'Walk up the road',
+  start_location_id: PathSeeds.l('SCC_k6').id,
+  end_location_id: PathSeeds.l('SCC_k5').id
+},
+{
+  description: 'Walk along the lane behind SCC',
+  start_location_id: PathSeeds.l('SCC_k11').id,
+  end_location_id: PathSeeds.l('SCC_k9').id
+},
+{
+  description: 'Walk along the lane behind SCC',
+  start_location_id: PathSeeds.l('SCC_k9').id,
+  end_location_id: PathSeeds.l('SCC_k11').id
+},
+{
+  description: 'Walk along the corridor in front of SCC',
+  start_location_id: PathSeeds.l('SCC_k5').id,
+  end_location_id: PathSeeds.l('SCC_k9').id
+},
+{
+  description: 'Walk along the corridor in front of SCC',
+  start_location_id: PathSeeds.l('SCC_k9').id,
+  end_location_id: PathSeeds.l('SCC_k5').id
+},
+{
+  description: 'Walk to the exit',
+  start_location_id: PathSeeds.l('SCC_i1').id,
+  end_location_id: PathSeeds.l('SCC_e2').id
+},
+{
+  description: 'Enter SCC',
+  start_location_id: PathSeeds.l('SCC_e2').id,
+  end_location_id: PathSeeds.l('SCC_i1').id
+},
+{
+  description: 'Continue walk away from SCC',
+  start_location_id: PathSeeds.l('SCC_e2').id,
+  end_location_id: PathSeeds.l('SCC_k4').id
+},
+{
+  description: 'Walk towards the entrance to SCC',
+  start_location_id: PathSeeds.l('SCC_k4').id,
+  end_location_id: PathSeeds.l('SCC_e2').id
+},
+{
+  description: 'Walk down the trail to the main road',
+  start_location_id: PathSeeds.l('SCC_k9').id,
+  end_location_id: PathSeeds.l('SCC_k10').id
+},
+{
+  description: 'Walk towards SCC',
+  start_location_id: PathSeeds.l('SCC_k10').id,
+  end_location_id: PathSeeds.l('SCC_k9').id
+},
+{
+  description: 'Walk along Loop Road',
+  start_location_id: PathSeeds.l('SCC_k10').id,
+  end_location_id: PathSeeds.l('SCC_k8').id
+},
+{
+  description: 'Walk along Loop Road',
+  start_location_id: PathSeeds.l('SCC_k8').id,
+  end_location_id: PathSeeds.l('SCC_k10').id
+},
+####### end of May 3 #####
 
 
 
