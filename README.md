@@ -31,7 +31,10 @@ When you enter a building, you may browse the building's floorplans, or just sea
 ![Guiding](http://brandeisgps.herokuapp.com/screenshot2.png)
 
 ### Our Team
-* Jing Zou [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/ginnyzou2015)   <jzou@brandeis.edu>
-* Ted Hultman [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/Theonidis)   <tedh@brandeis.edu>
-* Wan Zhou [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/tuwanwan)   <wzhou@brandeis.edu>
-* Xi Qian [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/qxx) <qxx@brandeis.edu>
+[![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/ginnyzou2015) Jing Zou <jzou@brandeis.edu>
+
+[![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/Theonidis) Ted Hultman <tedh@brandeis.edu>
+
+[![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/tuwanwan) Wan Zhou <wzhou@brandeis.edu>
+
+[![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/qxx) Xi Qian <qxx@brandeis.edu>

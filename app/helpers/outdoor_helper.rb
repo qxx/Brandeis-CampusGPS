@@ -22,17 +22,16 @@ module OutdoorHelper
   def get_location_pickup(params)
     pickup = params.split(", ");
     
-    lat_pickup = pickup[0];
-    lat_pickup[0] = '';
-
-    lng_pickup = pickup[1];
-    if lng_pickup[-9].to_i >= 5 
-      digit = lng_pickup[-10].to_i
-      digit += 1
-      lng_pickup[-10] = digit.to_s
+    lat = pickup[0][1..-1].to_f;
+    lng = pickup[1][0..-2].to_f;
+    epsilon = 0.000001;
+    location_pickup = Location.where("latitude > ? AND latitude < ? AND longitude > ? AND longitude < ?", lat-epsilon, lat+epsilon, lng-epsilon, lng+epsilon).first
+    if location_pickup
+      puts "**************************found location #{location_pickup.code_name}******************"
+      return location_pickup
+    else
+      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!"
     end
-    lng_pickup[-9..-1] = '';
-    location_pickup = Location.find_by!(latitude: lat_pickup, longitude: lng_pickup)
   end
 
   def find_building_or_parking_lot(name)
