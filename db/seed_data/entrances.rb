@@ -99,7 +99,21 @@ module EntranceSeeds
     {
       building_id: EntranceSeeds.b('SCC').id,
       location_id: EntranceSeeds.l('SCC_e3').id
+    },
+    {
+      building_id: EntranceSeeds.b('Gzang').id,
+      location_id: EntranceSeeds.l('Gzang_e1').id
+    },
+    {
+      building_id: EntranceSeeds.b('Edison').id,
+      location_id: EntranceSeeds.l('Edison_e1').id
+    },
+    {
+      building_id: EntranceSeeds.b('SSC').id,
+      location_id: EntranceSeeds.l('SSC_e3').id,
+      floor_id: EntranceSeeds.f('SSC_GL').id
     }
+
 
 ###################### End  ###########################################
   ]

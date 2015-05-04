@@ -1,6 +1,6 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-
+</br>
+<%= label_tag(:q, "Floor:", class: 'pull-left') %>
 <div class="btn-toolbar">
   <div class="btn-group">
     <% @floors.each do |floor| %>
@@ -11,7 +11,7 @@
     <% end %>
   </div>
 </div>
-
+</br>
 <%= form_tag(indoor_index_path, method: "get") do %>
   <%= hidden_field_tag(:building, @building.code_name) %>
   <%= label_tag(:q, "Room:") %>
@@ -20,8 +20,18 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<p id="notice"><%= flash[:notice] %></p>
+
 <div class="image-container">
   <%= image_tag(@floorplan, class: 'floorplan') %>
+  <!-- back to outdoor -->
+  <div style="position: absolute; left: 0; top: 10px;">
+    <% if @from.nil? || @to.nil? %>
+      <%= link_to "Back to Directions", outdoor_url %>
+    <% else %>
+      <%= link_to "Back to Directions", outdoor_routing_path(from: @from, to: @to) %>
+    <% end %>
+  </div>
   <% if @overlay_x && @overlay_y %>
   <div id="overlay" style="left: <%= @overlay_x %>%; top: <%= @overlay_y %>%;">
     <span class="glyphicon glyphicon-map-marker red"></span>
@@ -29,10 +39,7 @@
   <% end %>
 </div>
 
-<!-- back to outdoor -->
-<div>
-	<%= link_to "Back to Directions", outdoor_routing_path(from: @from, to: @to) %>
-</div>
+
 
 <script>
   <% images = @floors.map{|floor| floor.floorplan} %>
