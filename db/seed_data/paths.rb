@@ -785,6 +785,36 @@ PATHS = [
   start_location_id: PathSeeds.l('SCC_k8').id,
   end_location_id: PathSeeds.l('SCC_k10').id
 },
+{
+  description: 'Exit Edison',
+  start_location_id: PathSeeds.l('Edison_e1').id,
+  end_location_id: PathSeeds.l('Edison_k1').id
+},
+{
+  description: 'Entrance to Edison is right ahead',
+  start_location_id: PathSeeds.l('Edison_k1').id,
+  end_location_id: PathSeeds.l('Edison_e1').id
+},
+{
+  description: 'Walk towards the parking lot',
+  start_location_id: PathSeeds.l('Edison_k1').id,
+  end_location_id: PathSeeds.l('Edison_k2').id
+},
+{
+  description: 'Go through the trail',
+  start_location_id: PathSeeds.l('Edison_k2').id,
+  end_location_id: PathSeeds.l('Edison_k1').id
+},
+{
+  description: 'Walk Straight and Entrance to SSC on right',
+  start_location_id: PathSeeds.l('Edison_k2').id,
+  end_location_id: PathSeeds.l('SSC_e3').id
+},
+{
+  description: 'Walk towards the parking lot',
+  start_location_id: PathSeeds.l('SSC_e3').id,
+  end_location_id: PathSeeds.l('Edison_k2').id
+},
 ####### end of May 3 #####
 
 
