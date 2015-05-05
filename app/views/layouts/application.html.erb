@@ -11,23 +11,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 <%= yield %>
 
 <!-- bottom menu -->
-<nav class="navbar navbar-inverse navbar-fixed-bottom" style='height: 5px;'>
+<nav class="navbar navbar-inverse navbar-fixed-bottom mynavbarcolor">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4">
-        <%= link_to 'CampusGPS', outdoor_url %>
+      <div class="col-sm-2 col-sm-offset-2">
+        <%= link_to 'CampusGPS', outdoor_url , class:"navibartext1"%>
       </div>
-      <div class="col-sm-4">
-        <%= link_to 'Login', login_url %>
+      <div class="col-sm-2 col-sm-offset-2">
+        <%= link_to 'Login', login_url, class:"navibartext1" %>
       </div>
-      <div class="col-sm-4">
-        <%= link_to 'Contact Us', "https://github.com/qxx/Brandeis-CampusGPS" %>
+      <div class="col-sm-2 col-sm-offset-1">
+        <%= link_to 'Contact Us', "https://github.com/qxx/Brandeis-CampusGPS", class:"navibartext1" %>
       </div>
     </div>
   </div>
