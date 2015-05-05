@@ -636,6 +636,12 @@ LOCATIONS = [
   longitude: -71.259635,
   loc_type: 'keypoint'
 },
+{
+  code_name: 'SCC_k13',
+  latitude: 42.365523,
+  longitude: -71.260149,
+  loc_type: 'keypoint'
+},
 
 {
   code_name: 'TheaterLot_p1',

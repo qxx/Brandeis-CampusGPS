@@ -9,7 +9,7 @@ class IndoorController < ApplicationController
       room = @building.rooms.find_by(name: params[:room])
       room = @building.rooms.find_by(doortag: params[:room]) if room.nil?
       if room.nil?
-        flash[:notice] = "Room \"#{params[:room]}\" not found."
+        flash[:notice] = "Couldn't find \"#{params[:room]}\" in #{@building.code_name}."
         redirect_to(indoor_index_path(building:params[:building], directed_from:params[:directed_from]))
         return
       end

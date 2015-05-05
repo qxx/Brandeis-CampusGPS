@@ -21,6 +21,10 @@ module NicknameSeeds
       building_id: RoomSeeds.b('Volen').id
     },
     {
+      name:'Computer Science',
+      building_id: RoomSeeds.b('Volen').id
+    },
+    {
       name: 'Heller-Brown Building',
       building_id: RoomSeeds.b('Heller').id
     },
