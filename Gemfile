@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Google Map gems
 gem 'geocoder'
-gem 'gmaps4rails', :git => 'git://github.com/qxx/Google-Maps-for-Rails'
+gem 'gmaps4rails', :git => 'https://github.com/qxx/Google-Maps-for-Rails.git'
 
 # Bootstrap
 # gem 'bootstrap-sass', '~> 3.3.4'
