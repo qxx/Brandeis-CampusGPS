@@ -26,12 +26,7 @@ module OutdoorHelper
     lng = pickup[1][0..-2].to_f;
     epsilon = 0.000001;
     location_pickup = Location.where("latitude > ? AND latitude < ? AND longitude > ? AND longitude < ?", lat-epsilon, lat+epsilon, lng-epsilon, lng+epsilon).first
-    if location_pickup
-      puts "**************************found location #{location_pickup.code_name}******************"
-      return location_pickup
-    else
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR!!!!!!!!!!!!!"
-    end
+    return location_pickup
   end
 
   def find_building_or_parking_lot(name)
