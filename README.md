@@ -16,14 +16,45 @@ When you enter a building, you may browse the building's floorplans, or just sea
 ##### Outdoor
 * Theater Lot
 * Shapiro Campus Center
-* Part of Science Complex
+* Part of Science Complex (Volen, SSC, Gzang)
+* Faber Library
+* Golding
+* Lown
+* Olin-Sang
+* Rabb
+* Shiffman
+* Mandel
+* Heller
+* Kutz
 
 ##### Indoor
 * Volen
+* Shapiro Science Center (Room search not supported)
+
+### Architecture
+The application is built with Ruby on Rails 4. It has a standard Model-View-Controller (MVC) architecture. The view is built with Google Maps API (including Gmaps4rails gem), but the data we show to our users, including guiding texts, photos and lines and markers on the map, are all provided by ourselves.
 
 ### Technologies
+* Gmaps4rails gem
+
+Our modified version, hosted [here](https://github.com/qxx/Google-Maps-for-Rails). It helps simplify the process of adding markers and lines to the Google Map.
+
 * Google Maps Javascript API
+
+The documentation of Google Maps Javascript API is [here](https://developers.google.com/maps/documentation/javascript/). It's free for usage less than 25,000 map loads per day, which is sufficient for us. The map on the index page is completely made with Google Maps Javascript API, which is pure javascript.
+
 * A* algorithm
+
+We use [A* algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm) to calculate the shortest path between two given points. The graph structure is constructed at the first time the application runs with locations and paths in the database. This algorithm is impletement in ruby.
+
+* jQuery
+
+jQuery is a popular javascript library. Our autocomplete feature is made with jQuery.
+
+* Bootstrap
+
+Bootstrap provides an easy way to style our website. It responds to different screen sizes, e.g. phones, tablets, desktops. It also provides the glyphicons.
+
 
 ### Screen Shots
 ![Homepage](http://brandeisgps.herokuapp.com/screenshot1.png)
