@@ -31,7 +31,14 @@ When you enter a building, you may browse the building's floorplans, or just sea
 * Volen
 * Shapiro Science Center (Room search not supported)
 
+### Screen Shots
+![Homepage](http://brandeisgps.herokuapp.com/screenshot1.png)
+
+![Guiding](http://brandeisgps.herokuapp.com/screenshot2.png)
+
 ### Architecture
+![Architecture](http://brandeisgps.herokuapp.com/architecture.png)
+
 The application is built with Ruby on Rails 4. It has a standard Model-View-Controller (MVC) architecture. The view is built with Google Maps API (including Gmaps4rails gem), but the data we show to our users, including guiding texts, photos and lines and markers on the map, are all provided by ourselves.
 
 ### Technologies
@@ -55,11 +62,10 @@ jQuery is a popular javascript library. Our autocomplete feature is made with jQ
 
 Bootstrap provides an easy way to style our website. It responds to different screen sizes, e.g. phones, tablets, desktops. It also provides the glyphicons.
 
+### How Can YOU Help
+Collecting data is the biggest challenge we have faced so far. We are trying our best to cover every corner of our campus, but it's impossible to put everything in at one time. If you find a bug while using our product, or you just want us to support a specific location, please create a issue and we'll put that into our priority.
 
-### Screen Shots
-![Homepage](http://brandeisgps.herokuapp.com/screenshot1.png)
-
-![Guiding](http://brandeisgps.herokuapp.com/screenshot2.png)
+It's even better if you could poke into our seed files and help us figure out what to add. Use pull requests!
 
 ### Our Team
 [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/ginnyzou2015) Jing Zou <jzou@brandeis.edu>
