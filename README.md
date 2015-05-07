@@ -32,14 +32,16 @@ When you enter a building, you may browse the building's floorplans, or just sea
 * Shapiro Science Center (Room search not supported)
 
 ### Screen Shots
-![Homepage](http://brandeisgps.herokuapp.com/screenshot1.png)
+![Homepage](http://brandeisgps.herokuapp.com/screenshot-1.png)
 
-![Guiding](http://brandeisgps.herokuapp.com/screenshot2.png)
+![Guiding](http://brandeisgps.herokuapp.com/screenshot-2.png)
 
 ### Architecture
 ![Architecture](http://brandeisgps.herokuapp.com/architecture.png)
 
 The application is built with Ruby on Rails 4. It has a standard Model-View-Controller (MVC) architecture. The view is built with Google Maps API (including Gmaps4rails gem), but the data we show to our users, including guiding texts, photos and lines and markers on the map, are all provided by ourselves.
+
+One challenge we encountered during the designing phase is determining the [schema](https://github.com/qxx/Brandeis-CampusGPS/blob/master/db/schema.rb). There are complicated relations between points and paths, and it took us a while to reach a workable schema.
 
 ### Technologies
 * Gmaps4rails gem
@@ -52,7 +54,7 @@ The documentation of Google Maps Javascript API is [here](https://developers.goo
 
 * A* algorithm
 
-We use [A* algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm) to calculate the shortest path between two given points. The graph structure is constructed at the first time the application runs with locations and paths in the database. This algorithm is impletement in ruby.
+We use [A* algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm) to calculate the shortest path between two given points. We [implemented](https://github.com/qxx/Brandeis-CampusGPS/blob/master/lib/astar.rb) the algorithm in ruby. The graph structure is constructed at the first time the application runs with locations and paths in the database, and the shortest path is calculated at run time. 
 
 * jQuery
 
@@ -65,7 +67,7 @@ Bootstrap provides an easy way to style our website. It responds to different sc
 ### How Can YOU Help
 Collecting data is the biggest challenge we have faced so far. We are trying our best to cover every corner of our campus, but it's impossible to put everything in at one time. If you find a bug while using our product, or you just want us to support a specific location, please create a issue and we'll put that into our priority.
 
-It's even better if you could poke into our seed files and help us figure out what to add. Use pull requests!
+It's even better if you could poke into our [seed files](https://github.com/qxx/Brandeis-CampusGPS/tree/master/db/seed_data) and help us figure out what to add. Use pull requests!
 
 ### Our Team
 [![github](http://brandeisgps.herokuapp.com/githubmark.png)](https://github.com/ginnyzou2015) Jing Zou <jzou@brandeis.edu>
